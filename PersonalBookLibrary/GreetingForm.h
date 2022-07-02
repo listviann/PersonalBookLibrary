@@ -81,7 +81,7 @@ namespace PersonalBookLibrary {
 				static_cast<System::Byte>(204)));
 			this->label1->Location = System::Drawing::Point(73, 25);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(319, 46);
+			this->label1->Size = System::Drawing::Size(309, 45);
 			this->label1->TabIndex = 1;
 			this->label1->Text = L"Добро пожаловать";
 			// 
@@ -93,7 +93,7 @@ namespace PersonalBookLibrary {
 				static_cast<System::Byte>(204)));
 			this->richTextBox1->Location = System::Drawing::Point(100, 355);
 			this->richTextBox1->Name = L"richTextBox1";
-			this->richTextBox1->Size = System::Drawing::Size(260, 86);
+			this->richTextBox1->Size = System::Drawing::Size(260, 75);
 			this->richTextBox1->TabIndex = 2;
 			this->richTextBox1->Text = L"Данное приложение создал студент Высшей школы электроники и компьютерных наук гру"
 				L"ппы КЭ-203 Ларионов Михаил Романович.";
@@ -112,7 +112,7 @@ namespace PersonalBookLibrary {
 			this->MaximizeBox = false;
 			this->MinimizeBox = false;
 			this->Name = L"GreetingForm";
-			this->Text = L"GreetingForm";
+			this->Text = L"Personal Book Library";
 			this->Load += gcnew System::EventHandler(this, &GreetingForm::GreetingForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);

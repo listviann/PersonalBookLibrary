@@ -34,6 +34,8 @@ namespace PersonalBookLibrary {
 				delete components;
 			}
 		}
+	private: System::Windows::Forms::RichTextBox^ richTextBox1;
+	protected:
 
 	private:
 		/// <summary>
@@ -48,15 +50,28 @@ namespace PersonalBookLibrary {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			this->richTextBox1 = (gcnew System::Windows::Forms::RichTextBox());
 			this->SuspendLayout();
+			// 
+			// richTextBox1
+			// 
+			this->richTextBox1->BackColor = System::Drawing::SystemColors::Info;
+			this->richTextBox1->Location = System::Drawing::Point(12, 12);
+			this->richTextBox1->Name = L"richTextBox1";
+			this->richTextBox1->Size = System::Drawing::Size(536, 394);
+			this->richTextBox1->TabIndex = 0;
+			this->richTextBox1->Text = L"Данное приложение создал студент Высшей школы электроники и компьютерных наук гру"
+				L"ппы КЭ-203 Ларионов Михаил Романович.";
 			// 
 			// HelpForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(544, 362);
+			this->BackColor = System::Drawing::Color::Ivory;
+			this->ClientSize = System::Drawing::Size(560, 418);
+			this->Controls->Add(this->richTextBox1);
 			this->Name = L"HelpForm";
-			this->Text = L"Personal Book Library";
+			this->Text = L"Помощь";
 			this->ResumeLayout(false);
 
 		}

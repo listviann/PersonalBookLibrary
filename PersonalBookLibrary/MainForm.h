@@ -135,7 +135,7 @@ namespace PersonalBookLibrary {
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->bookName_textBox->Location = System::Drawing::Point(160, 82);
 			this->bookName_textBox->Name = L"bookName_textBox";
-			this->bookName_textBox->Size = System::Drawing::Size(180, 22);
+			this->bookName_textBox->Size = System::Drawing::Size(390, 22);
 			this->bookName_textBox->TabIndex = 1;
 			// 
 			// authorName_label
@@ -157,7 +157,7 @@ namespace PersonalBookLibrary {
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->authorName_textBox->Location = System::Drawing::Point(160, 138);
 			this->authorName_textBox->Name = L"authorName_textBox";
-			this->authorName_textBox->Size = System::Drawing::Size(180, 22);
+			this->authorName_textBox->Size = System::Drawing::Size(390, 22);
 			this->authorName_textBox->TabIndex = 3;
 			// 
 			// publisher_label
@@ -179,7 +179,7 @@ namespace PersonalBookLibrary {
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->publisher_textBox->Location = System::Drawing::Point(160, 194);
 			this->publisher_textBox->Name = L"publisher_textBox";
-			this->publisher_textBox->Size = System::Drawing::Size(180, 22);
+			this->publisher_textBox->Size = System::Drawing::Size(390, 22);
 			this->publisher_textBox->TabIndex = 5;
 			// 
 			// libSection_label
@@ -201,7 +201,7 @@ namespace PersonalBookLibrary {
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->libSection_textBox->Location = System::Drawing::Point(160, 250);
 			this->libSection_textBox->Name = L"libSection_textBox";
-			this->libSection_textBox->Size = System::Drawing::Size(180, 22);
+			this->libSection_textBox->Size = System::Drawing::Size(390, 22);
 			this->libSection_textBox->TabIndex = 7;
 			// 
 			// origin_label
@@ -223,7 +223,7 @@ namespace PersonalBookLibrary {
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->origin_textBox->Location = System::Drawing::Point(160, 306);
 			this->origin_textBox->Name = L"origin_textBox";
-			this->origin_textBox->Size = System::Drawing::Size(180, 22);
+			this->origin_textBox->Size = System::Drawing::Size(390, 22);
 			this->origin_textBox->TabIndex = 9;
 			// 
 			// assessment_label
@@ -245,7 +245,7 @@ namespace PersonalBookLibrary {
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->assessment_richTextBox->Location = System::Drawing::Point(160, 362);
 			this->assessment_richTextBox->Name = L"assessment_richTextBox";
-			this->assessment_richTextBox->Size = System::Drawing::Size(180, 120);
+			this->assessment_richTextBox->Size = System::Drawing::Size(390, 120);
 			this->assessment_richTextBox->TabIndex = 11;
 			this->assessment_richTextBox->Text = L"";
 			// 
@@ -301,7 +301,7 @@ namespace PersonalBookLibrary {
 				static_cast<System::Byte>(204)));
 			this->addToDb_button->Location = System::Drawing::Point(160, 576);
 			this->addToDb_button->Name = L"addToDb_button";
-			this->addToDb_button->Size = System::Drawing::Size(180, 57);
+			this->addToDb_button->Size = System::Drawing::Size(390, 57);
 			this->addToDb_button->TabIndex = 15;
 			this->addToDb_button->Text = L"Добавить";
 			this->addToDb_button->UseVisualStyleBackColor = false;
@@ -315,7 +315,7 @@ namespace PersonalBookLibrary {
 				static_cast<System::Byte>(204)));
 			this->clearFields_button->Location = System::Drawing::Point(160, 639);
 			this->clearFields_button->Name = L"clearFields_button";
-			this->clearFields_button->Size = System::Drawing::Size(180, 57);
+			this->clearFields_button->Size = System::Drawing::Size(390, 57);
 			this->clearFields_button->TabIndex = 16;
 			this->clearFields_button->Text = L"Очистить";
 			this->clearFields_button->UseVisualStyleBackColor = false;
@@ -329,7 +329,7 @@ namespace PersonalBookLibrary {
 			});
 			this->MainForm_menuStrip->Location = System::Drawing::Point(0, 0);
 			this->MainForm_menuStrip->Name = L"MainForm_menuStrip";
-			this->MainForm_menuStrip->Size = System::Drawing::Size(482, 28);
+			this->MainForm_menuStrip->Size = System::Drawing::Size(692, 28);
 			this->MainForm_menuStrip->TabIndex = 17;
 			// 
 			// ResultForm_ToolStripMenuItem
@@ -349,7 +349,7 @@ namespace PersonalBookLibrary {
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::Ivory;
-			this->ClientSize = System::Drawing::Size(482, 733);
+			this->ClientSize = System::Drawing::Size(692, 733);
 			this->Controls->Add(this->clearFields_button);
 			this->Controls->Add(this->addToDb_button);
 			this->Controls->Add(this->existance_radioButton2);
@@ -370,10 +370,10 @@ namespace PersonalBookLibrary {
 			this->Controls->Add(this->MainForm_menuStrip);
 			this->MainMenuStrip = this->MainForm_menuStrip;
 			this->MaximizeBox = false;
-			this->MaximumSize = System::Drawing::Size(500, 780);
-			this->MinimumSize = System::Drawing::Size(500, 780);
+			this->MaximumSize = System::Drawing::Size(710, 780);
+			this->MinimumSize = System::Drawing::Size(710, 780);
 			this->Name = L"MainForm";
-			this->Text = L"Personal Book Library";
+			this->Text = L"Добавление книги";
 			this->MainForm_menuStrip->ResumeLayout(false);
 			this->MainForm_menuStrip->PerformLayout();
 			this->ResumeLayout(false);

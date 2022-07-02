@@ -44,11 +44,15 @@ namespace PersonalBookLibrary {
 	private: System::Windows::Forms::Button^ button3;
 	private: System::Windows::Forms::Button^ button1;
 
+
+
+	private: System::ComponentModel::IContainer^ components;
+
 	private:
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -153,7 +157,7 @@ namespace PersonalBookLibrary {
 			this->MaximumSize = System::Drawing::Size(485, 525);
 			this->MinimumSize = System::Drawing::Size(485, 525);
 			this->Name = L"ResultForm";
-			this->Text = L"Personal Book Library";
+			this->Text = L"База данных";
 			this->ResumeLayout(false);
 			this->PerformLayout();
 

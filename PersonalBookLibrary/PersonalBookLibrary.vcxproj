@@ -119,6 +119,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Book.cpp" />
+    <ClCompile Include="EditForm.cpp" />
     <ClCompile Include="GreetingForm.cpp" />
     <ClCompile Include="HelpForm.cpp" />
     <ClCompile Include="MainForm.cpp" />
@@ -126,6 +127,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Book.h" />
+    <ClInclude Include="EditForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="GreetingForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -144,6 +148,9 @@
     <ResourceCompile Include="PersonalBookLibrary.rc" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="EditForm.resx">
+      <DependentUpon>EditForm.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GreetingForm.resx">
       <DependentUpon>GreetingForm.h</DependentUpon>
     </EmbeddedResource>

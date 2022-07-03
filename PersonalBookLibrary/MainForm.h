@@ -1,5 +1,6 @@
 #pragma once
 #include "HelpForm.h"
+#include "ResultForm.h"
 
 namespace PersonalBookLibrary {
 
@@ -385,6 +386,8 @@ namespace PersonalBookLibrary {
 		}
 #pragma endregion
 	private: System::Void ResultForm_ToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		ResultForm^ resultForm = gcnew ResultForm;
+		resultForm->Show();
 	}
 private: System::Void HelpForm_ToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	HelpForm^ helpForm = gcnew HelpForm;

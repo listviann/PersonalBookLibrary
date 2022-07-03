@@ -119,6 +119,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Book.cpp" />
+    <ClCompile Include="BookLibrary.cpp" />
     <ClCompile Include="EditForm.cpp" />
     <ClCompile Include="GreetingForm.cpp" />
     <ClCompile Include="HelpForm.cpp" />
@@ -127,6 +128,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Book.h" />
+    <ClInclude Include="BookLibrary.h" />
     <ClInclude Include="EditForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>

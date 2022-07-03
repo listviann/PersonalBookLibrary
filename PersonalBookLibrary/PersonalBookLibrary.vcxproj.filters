@@ -27,10 +27,13 @@
     <ClCompile Include="HelpForm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="EditForm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="Book.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="EditForm.cpp">
+    <ClCompile Include="BookLibrary.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -50,10 +53,13 @@
     <ClInclude Include="resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="EditForm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="Book.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="EditForm.h">
+    <ClInclude Include="BookLibrary.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

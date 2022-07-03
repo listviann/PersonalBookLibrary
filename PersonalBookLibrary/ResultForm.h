@@ -1,4 +1,5 @@
 #pragma once
+#include "EditForm.h"
 
 namespace PersonalBookLibrary {
 
@@ -127,6 +128,7 @@ namespace PersonalBookLibrary {
 			this->editBook_button->TabIndex = 5;
 			this->editBook_button->Text = L"Изменить";
 			this->editBook_button->UseVisualStyleBackColor = false;
+			this->editBook_button->Click += gcnew System::EventHandler(this, &ResultForm::editBook_button_Click);
 			// 
 			// deleteBook_button
 			// 
@@ -174,5 +176,9 @@ namespace PersonalBookLibrary {
 
 		}
 #pragma endregion
-	};
+	private: System::Void editBook_button_Click(System::Object^ sender, System::EventArgs^ e) {
+		EditForm^ editForm = gcnew EditForm;
+		editForm->Show();
+	}
+};
 }

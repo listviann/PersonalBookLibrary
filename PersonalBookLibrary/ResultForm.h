@@ -34,15 +34,26 @@ namespace PersonalBookLibrary {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::ListBox^ listBox1;
+	private: System::Windows::Forms::ListBox^ database_listBox;
+	private: System::Windows::Forms::TextBox^ searchBar_textBox;
 	protected:
-	private: System::Windows::Forms::TextBox^ textBox1;
-	private: System::Windows::Forms::Label^ label1;
-	private: System::Windows::Forms::ComboBox^ comboBox1;
 
-	private: System::Windows::Forms::Button^ button2;
-	private: System::Windows::Forms::Button^ button3;
-	private: System::Windows::Forms::Button^ button1;
+	protected:
+
+	private: System::Windows::Forms::Label^ searchKey_label;
+	private: System::Windows::Forms::ComboBox^ searchKey_comboBox;
+	private: System::Windows::Forms::Button^ editBook_button;
+	private: System::Windows::Forms::Button^ deleteBook_button;
+
+
+
+
+
+
+
+
+	private: System::Windows::Forms::Button^ search_button;
+
 
 
 
@@ -61,84 +72,84 @@ namespace PersonalBookLibrary {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->listBox1 = (gcnew System::Windows::Forms::ListBox());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
-			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
-			this->button2 = (gcnew System::Windows::Forms::Button());
-			this->button3 = (gcnew System::Windows::Forms::Button());
-			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->database_listBox = (gcnew System::Windows::Forms::ListBox());
+			this->searchBar_textBox = (gcnew System::Windows::Forms::TextBox());
+			this->searchKey_label = (gcnew System::Windows::Forms::Label());
+			this->searchKey_comboBox = (gcnew System::Windows::Forms::ComboBox());
+			this->editBook_button = (gcnew System::Windows::Forms::Button());
+			this->deleteBook_button = (gcnew System::Windows::Forms::Button());
+			this->search_button = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
-			// listBox1
+			// database_listBox
 			// 
-			this->listBox1->FormattingEnabled = true;
-			this->listBox1->ItemHeight = 16;
-			this->listBox1->Location = System::Drawing::Point(12, 85);
-			this->listBox1->Name = L"listBox1";
-			this->listBox1->Size = System::Drawing::Size(443, 308);
-			this->listBox1->TabIndex = 0;
+			this->database_listBox->FormattingEnabled = true;
+			this->database_listBox->ItemHeight = 16;
+			this->database_listBox->Location = System::Drawing::Point(12, 85);
+			this->database_listBox->Name = L"database_listBox";
+			this->database_listBox->Size = System::Drawing::Size(443, 308);
+			this->database_listBox->TabIndex = 0;
 			// 
-			// textBox1
+			// searchBar_textBox
 			// 
-			this->textBox1->Location = System::Drawing::Point(12, 57);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(348, 22);
-			this->textBox1->TabIndex = 1;
+			this->searchBar_textBox->Location = System::Drawing::Point(12, 57);
+			this->searchBar_textBox->Name = L"searchBar_textBox";
+			this->searchBar_textBox->Size = System::Drawing::Size(348, 22);
+			this->searchBar_textBox->TabIndex = 1;
 			// 
-			// label1
+			// searchKey_label
 			// 
-			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->searchKey_label->AutoSize = true;
+			this->searchKey_label->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label1->Location = System::Drawing::Point(12, 23);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(176, 28);
-			this->label1->TabIndex = 2;
-			this->label1->Text = L"Критерий поиска:";
+			this->searchKey_label->Location = System::Drawing::Point(12, 23);
+			this->searchKey_label->Name = L"searchKey_label";
+			this->searchKey_label->Size = System::Drawing::Size(176, 28);
+			this->searchKey_label->TabIndex = 2;
+			this->searchKey_label->Text = L"Критерий поиска:";
 			// 
-			// comboBox1
+			// searchKey_comboBox
 			// 
-			this->comboBox1->FormattingEnabled = true;
-			this->comboBox1->Location = System::Drawing::Point(200, 27);
-			this->comboBox1->Name = L"comboBox1";
-			this->comboBox1->Size = System::Drawing::Size(160, 24);
-			this->comboBox1->TabIndex = 3;
+			this->searchKey_comboBox->FormattingEnabled = true;
+			this->searchKey_comboBox->Location = System::Drawing::Point(200, 27);
+			this->searchKey_comboBox->Name = L"searchKey_comboBox";
+			this->searchKey_comboBox->Size = System::Drawing::Size(160, 24);
+			this->searchKey_comboBox->TabIndex = 3;
 			// 
-			// button2
+			// editBook_button
 			// 
-			this->button2->BackColor = System::Drawing::Color::LightSkyBlue;
-			this->button2->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->editBook_button->BackColor = System::Drawing::Color::LightSkyBlue;
+			this->editBook_button->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->button2->Location = System::Drawing::Point(12, 399);
-			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(210, 57);
-			this->button2->TabIndex = 5;
-			this->button2->Text = L"Изменить";
-			this->button2->UseVisualStyleBackColor = false;
+			this->editBook_button->Location = System::Drawing::Point(12, 399);
+			this->editBook_button->Name = L"editBook_button";
+			this->editBook_button->Size = System::Drawing::Size(210, 57);
+			this->editBook_button->TabIndex = 5;
+			this->editBook_button->Text = L"Изменить";
+			this->editBook_button->UseVisualStyleBackColor = false;
 			// 
-			// button3
+			// deleteBook_button
 			// 
-			this->button3->BackColor = System::Drawing::Color::LightCoral;
-			this->button3->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->deleteBook_button->BackColor = System::Drawing::Color::LightCoral;
+			this->deleteBook_button->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->button3->Location = System::Drawing::Point(245, 399);
-			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(210, 57);
-			this->button3->TabIndex = 6;
-			this->button3->Text = L"Удалить";
-			this->button3->UseVisualStyleBackColor = false;
+			this->deleteBook_button->Location = System::Drawing::Point(245, 399);
+			this->deleteBook_button->Name = L"deleteBook_button";
+			this->deleteBook_button->Size = System::Drawing::Size(210, 57);
+			this->deleteBook_button->TabIndex = 6;
+			this->deleteBook_button->Text = L"Удалить";
+			this->deleteBook_button->UseVisualStyleBackColor = false;
 			// 
-			// button1
+			// search_button
 			// 
-			this->button1->Font = (gcnew System::Drawing::Font(L"Segoe UI", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->search_button->Font = (gcnew System::Drawing::Font(L"Segoe UI", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->button1->Location = System::Drawing::Point(366, 23);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(89, 56);
-			this->button1->TabIndex = 7;
-			this->button1->Text = L"Найти";
-			this->button1->UseVisualStyleBackColor = true;
+			this->search_button->Location = System::Drawing::Point(366, 23);
+			this->search_button->Name = L"search_button";
+			this->search_button->Size = System::Drawing::Size(89, 56);
+			this->search_button->TabIndex = 7;
+			this->search_button->Text = L"Найти";
+			this->search_button->UseVisualStyleBackColor = true;
 			// 
 			// ResultForm
 			// 
@@ -146,13 +157,13 @@ namespace PersonalBookLibrary {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::Ivory;
 			this->ClientSize = System::Drawing::Size(467, 478);
-			this->Controls->Add(this->button1);
-			this->Controls->Add(this->button3);
-			this->Controls->Add(this->button2);
-			this->Controls->Add(this->comboBox1);
-			this->Controls->Add(this->label1);
-			this->Controls->Add(this->textBox1);
-			this->Controls->Add(this->listBox1);
+			this->Controls->Add(this->search_button);
+			this->Controls->Add(this->deleteBook_button);
+			this->Controls->Add(this->editBook_button);
+			this->Controls->Add(this->searchKey_comboBox);
+			this->Controls->Add(this->searchKey_label);
+			this->Controls->Add(this->searchBar_textBox);
+			this->Controls->Add(this->database_listBox);
 			this->MaximizeBox = false;
 			this->MaximumSize = System::Drawing::Size(485, 525);
 			this->MinimumSize = System::Drawing::Size(485, 525);

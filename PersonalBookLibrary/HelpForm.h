@@ -34,14 +34,16 @@ namespace PersonalBookLibrary {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::RichTextBox^ richTextBox1;
+	private: System::Windows::Forms::RichTextBox^ helpInfo_richTextBox;
+	protected:
+
 	protected:
 
 	private:
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -50,18 +52,23 @@ namespace PersonalBookLibrary {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->richTextBox1 = (gcnew System::Windows::Forms::RichTextBox());
+			this->helpInfo_richTextBox = (gcnew System::Windows::Forms::RichTextBox());
 			this->SuspendLayout();
 			// 
-			// richTextBox1
+			// helpInfo_richTextBox
 			// 
-			this->richTextBox1->BackColor = System::Drawing::SystemColors::Info;
-			this->richTextBox1->Location = System::Drawing::Point(12, 12);
-			this->richTextBox1->Name = L"richTextBox1";
-			this->richTextBox1->Size = System::Drawing::Size(536, 394);
-			this->richTextBox1->TabIndex = 0;
-			this->richTextBox1->Text = L"Данное приложение создал студент Высшей школы электроники и компьютерных наук гру"
-				L"ппы КЭ-203 Ларионов Михаил Романович.";
+			this->helpInfo_richTextBox->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+				| System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
+			this->helpInfo_richTextBox->BackColor = System::Drawing::SystemColors::Info;
+			this->helpInfo_richTextBox->Font = (gcnew System::Drawing::Font(L"Segoe UI", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->helpInfo_richTextBox->Location = System::Drawing::Point(12, 12);
+			this->helpInfo_richTextBox->Name = L"helpInfo_richTextBox";
+			this->helpInfo_richTextBox->Size = System::Drawing::Size(536, 394);
+			this->helpInfo_richTextBox->TabIndex = 0;
+			this->helpInfo_richTextBox->Text = L"";
+			this->helpInfo_richTextBox->TextChanged += gcnew System::EventHandler(this, &HelpForm::helpInfo_richTextBox_TextChanged);
 			// 
 			// HelpForm
 			// 
@@ -69,12 +76,21 @@ namespace PersonalBookLibrary {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::Ivory;
 			this->ClientSize = System::Drawing::Size(560, 418);
-			this->Controls->Add(this->richTextBox1);
+			this->Controls->Add(this->helpInfo_richTextBox);
 			this->Name = L"HelpForm";
 			this->Text = L"Помощь";
+			this->Load += gcnew System::EventHandler(this, &HelpForm::HelpForm_Load);
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
+	private: System::Void helpInfo_richTextBox_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+
+	}
+	private: System::Void HelpForm_Load(System::Object^ sender, System::EventArgs^ e) 
+	{
+		String^ infoFromFile = System::IO::File::ReadAllText("D:\\Программирование 2 курс\\Практика\\PersonalBookLibrary\\information.txt");
+		helpInfo_richTextBox->Text = infoFromFile;
+	}
 	};
 }

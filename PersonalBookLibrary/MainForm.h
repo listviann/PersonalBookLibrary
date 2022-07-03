@@ -1,4 +1,5 @@
 #pragma once
+#include "HelpForm.h"
 
 namespace PersonalBookLibrary {
 
@@ -337,12 +338,14 @@ namespace PersonalBookLibrary {
 			this->ResultForm_ToolStripMenuItem->Name = L"ResultForm_ToolStripMenuItem";
 			this->ResultForm_ToolStripMenuItem->Size = System::Drawing::Size(111, 24);
 			this->ResultForm_ToolStripMenuItem->Text = L"База данных";
+			this->ResultForm_ToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::ResultForm_ToolStripMenuItem_Click);
 			// 
 			// HelpForm_ToolStripMenuItem
 			// 
 			this->HelpForm_ToolStripMenuItem->Name = L"HelpForm_ToolStripMenuItem";
 			this->HelpForm_ToolStripMenuItem->Size = System::Drawing::Size(83, 24);
 			this->HelpForm_ToolStripMenuItem->Text = L"Помощь";
+			this->HelpForm_ToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::HelpForm_ToolStripMenuItem_Click);
 			// 
 			// MainForm
 			// 
@@ -381,5 +384,11 @@ namespace PersonalBookLibrary {
 
 		}
 #pragma endregion
-	};
+	private: System::Void ResultForm_ToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+private: System::Void HelpForm_ToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	HelpForm^ helpForm = gcnew HelpForm;
+	helpForm->Show();
+}
+};
 }

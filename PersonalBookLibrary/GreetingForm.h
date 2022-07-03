@@ -1,4 +1,5 @@
 #pragma once
+#include "MainForm.h"
 
 namespace PersonalBookLibrary {
 
@@ -34,8 +35,13 @@ namespace PersonalBookLibrary {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::PictureBox^ pictureBox1;
-	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::Label^ greeting_label;
+	protected:
+
+
+
+	private: System::Windows::Forms::PictureBox^ appLogo_pictureBox;
+
 
 
 	protected:
@@ -44,7 +50,7 @@ namespace PersonalBookLibrary {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -54,52 +60,54 @@ namespace PersonalBookLibrary {
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(GreetingForm::typeid));
-			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
-			this->label1 = (gcnew System::Windows::Forms::Label());
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
+			this->greeting_label = (gcnew System::Windows::Forms::Label());
+			this->appLogo_pictureBox = (gcnew System::Windows::Forms::PictureBox());
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->appLogo_pictureBox))->BeginInit();
 			this->SuspendLayout();
 			// 
-			// pictureBox1
+			// greeting_label
 			// 
-			this->pictureBox1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+			this->greeting_label->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
 				| System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
-			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
-			this->pictureBox1->Location = System::Drawing::Point(100, 74);
-			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(260, 260);
-			this->pictureBox1->TabIndex = 0;
-			this->pictureBox1->TabStop = false;
-			// 
-			// label1
-			// 
-			this->label1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
-				| System::Windows::Forms::AnchorStyles::Left)
-				| System::Windows::Forms::AnchorStyles::Right));
-			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Segoe UI", 19.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->greeting_label->AutoSize = true;
+			this->greeting_label->Font = (gcnew System::Drawing::Font(L"Segoe UI", 19.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label1->Location = System::Drawing::Point(73, 25);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(309, 45);
-			this->label1->TabIndex = 1;
-			this->label1->Text = L"Добро пожаловать";
+			this->greeting_label->Location = System::Drawing::Point(80, 25);
+			this->greeting_label->Name = L"greeting_label";
+			this->greeting_label->Size = System::Drawing::Size(309, 45);
+			this->greeting_label->TabIndex = 1;
+			this->greeting_label->Text = L"Добро пожаловать";
+			// 
+			// appLogo_pictureBox
+			// 
+			this->appLogo_pictureBox->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+				| System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
+			this->appLogo_pictureBox->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"appLogo_pictureBox.BackgroundImage")));
+			this->appLogo_pictureBox->Location = System::Drawing::Point(88, 73);
+			this->appLogo_pictureBox->Name = L"appLogo_pictureBox";
+			this->appLogo_pictureBox->Size = System::Drawing::Size(299, 264);
+			this->appLogo_pictureBox->TabIndex = 3;
+			this->appLogo_pictureBox->TabStop = false;
 			// 
 			// GreetingForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->AutoSize = true;
-			this->BackColor = System::Drawing::Color::Ivory;
-			this->ClientSize = System::Drawing::Size(482, 453);
-			this->Controls->Add(this->label1);
-			this->Controls->Add(this->pictureBox1);
+			this->BackColor = System::Drawing::Color::White;
+			this->ClientSize = System::Drawing::Size(482, 519);
+			this->Controls->Add(this->appLogo_pictureBox);
+			this->Controls->Add(this->greeting_label);
 			this->MaximizeBox = false;
+			this->MaximumSize = System::Drawing::Size(500, 566);
 			this->MinimizeBox = false;
+			this->MinimumSize = System::Drawing::Size(500, 566);
 			this->Name = L"GreetingForm";
 			this->Text = L"Personal Book Library";
 			this->Load += gcnew System::EventHandler(this, &GreetingForm::GreetingForm_Load);
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->appLogo_pictureBox))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -109,7 +117,8 @@ namespace PersonalBookLibrary {
 	}
 	private: System::Void label2_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
-private: System::Void richTextBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-}
-};
+	private: System::Void richTextBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+	}
+	
+	};
 }

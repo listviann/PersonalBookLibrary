@@ -34,29 +34,52 @@ namespace PersonalBookLibrary {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::Label^ bookName_label;
+	private: System::Windows::Forms::Label^ authorName_label;
 	protected:
-	private: System::Windows::Forms::Label^ label2;
+
+	protected:
+
+	protected:
+
+	private: System::Windows::Forms::TextBox^ bookName_textBox;
+	private: System::Windows::Forms::TextBox^ authorName_textBox;
+	private: System::Windows::Forms::Label^ publisher_label;
+	private: System::Windows::Forms::TextBox^ publisher_textBox;
+	private: System::Windows::Forms::Label^ libSection_label;
+	private: System::Windows::Forms::TextBox^ libSection_textBox;
+	private: System::Windows::Forms::Label^ origin_label;
+	private: System::Windows::Forms::TextBox^ origin_textBox;
+	private: System::Windows::Forms::Label^ assessment_label;
+	private: System::Windows::Forms::RichTextBox^ assessment_richTextBox;
+	private: System::Windows::Forms::Button^ saveInDb_button;
 
 
 
 
 
-	private: System::Windows::Forms::TextBox^ textBox1;
-	private: System::Windows::Forms::TextBox^ textBox2;
-	private: System::Windows::Forms::Label^ label3;
-	private: System::Windows::Forms::TextBox^ textBox3;
-	private: System::Windows::Forms::Label^ label4;
-	private: System::Windows::Forms::TextBox^ textBox4;
-	private: System::Windows::Forms::Label^ label5;
-	private: System::Windows::Forms::TextBox^ textBox5;
-	private: System::Windows::Forms::Label^ label6;
-	private: System::Windows::Forms::RichTextBox^ richTextBox1;
-	private: System::Windows::Forms::Button^ button1;
-	private: System::Windows::Forms::Label^ label7;
-	private: System::Windows::Forms::RadioButton^ radioButton1;
-	private: System::Windows::Forms::RadioButton^ radioButton2;
-	private: System::Windows::Forms::Button^ button2;
+
+
+
+
+
+
+
+
+
+
+
+
+
+	private: System::Windows::Forms::Label^ existance_label;
+	private: System::Windows::Forms::RadioButton^ existance_radioButton1;
+	private: System::Windows::Forms::RadioButton^ existance_radioButton2;
+	private: System::Windows::Forms::Button^ clearFields_button;
+
+
+
+
+
 
 
 	private:
@@ -72,228 +95,228 @@ namespace PersonalBookLibrary {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
-			this->label3 = (gcnew System::Windows::Forms::Label());
-			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
-			this->label4 = (gcnew System::Windows::Forms::Label());
-			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
-			this->label5 = (gcnew System::Windows::Forms::Label());
-			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
-			this->label6 = (gcnew System::Windows::Forms::Label());
-			this->richTextBox1 = (gcnew System::Windows::Forms::RichTextBox());
-			this->button1 = (gcnew System::Windows::Forms::Button());
-			this->label7 = (gcnew System::Windows::Forms::Label());
-			this->radioButton1 = (gcnew System::Windows::Forms::RadioButton());
-			this->radioButton2 = (gcnew System::Windows::Forms::RadioButton());
-			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->bookName_label = (gcnew System::Windows::Forms::Label());
+			this->authorName_label = (gcnew System::Windows::Forms::Label());
+			this->bookName_textBox = (gcnew System::Windows::Forms::TextBox());
+			this->authorName_textBox = (gcnew System::Windows::Forms::TextBox());
+			this->publisher_label = (gcnew System::Windows::Forms::Label());
+			this->publisher_textBox = (gcnew System::Windows::Forms::TextBox());
+			this->libSection_label = (gcnew System::Windows::Forms::Label());
+			this->libSection_textBox = (gcnew System::Windows::Forms::TextBox());
+			this->origin_label = (gcnew System::Windows::Forms::Label());
+			this->origin_textBox = (gcnew System::Windows::Forms::TextBox());
+			this->assessment_label = (gcnew System::Windows::Forms::Label());
+			this->assessment_richTextBox = (gcnew System::Windows::Forms::RichTextBox());
+			this->saveInDb_button = (gcnew System::Windows::Forms::Button());
+			this->existance_label = (gcnew System::Windows::Forms::Label());
+			this->existance_radioButton1 = (gcnew System::Windows::Forms::RadioButton());
+			this->existance_radioButton2 = (gcnew System::Windows::Forms::RadioButton());
+			this->clearFields_button = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
-			// label1
+			// bookName_label
 			// 
-			this->label1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+			this->bookName_label->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
-			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->bookName_label->AutoSize = true;
+			this->bookName_label->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label1->Location = System::Drawing::Point(160, 51);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(159, 28);
-			this->label1->TabIndex = 0;
-			this->label1->Text = L"Название книги";
+			this->bookName_label->Location = System::Drawing::Point(160, 51);
+			this->bookName_label->Name = L"bookName_label";
+			this->bookName_label->Size = System::Drawing::Size(159, 28);
+			this->bookName_label->TabIndex = 0;
+			this->bookName_label->Text = L"Название книги";
 			// 
-			// label2
+			// authorName_label
 			// 
-			this->label2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+			this->authorName_label->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
-			this->label2->AutoSize = true;
-			this->label2->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->authorName_label->AutoSize = true;
+			this->authorName_label->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label2->Location = System::Drawing::Point(160, 107);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(119, 28);
-			this->label2->TabIndex = 1;
-			this->label2->Text = L"Имя автора";
+			this->authorName_label->Location = System::Drawing::Point(160, 107);
+			this->authorName_label->Name = L"authorName_label";
+			this->authorName_label->Size = System::Drawing::Size(119, 28);
+			this->authorName_label->TabIndex = 1;
+			this->authorName_label->Text = L"Имя автора";
 			// 
-			// textBox1
+			// bookName_textBox
 			// 
-			this->textBox1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+			this->bookName_textBox->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
-			this->textBox1->Location = System::Drawing::Point(160, 82);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(390, 22);
-			this->textBox1->TabIndex = 7;
+			this->bookName_textBox->Location = System::Drawing::Point(160, 82);
+			this->bookName_textBox->Name = L"bookName_textBox";
+			this->bookName_textBox->Size = System::Drawing::Size(390, 22);
+			this->bookName_textBox->TabIndex = 7;
 			// 
-			// textBox2
+			// authorName_textBox
 			// 
-			this->textBox2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+			this->authorName_textBox->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
-			this->textBox2->Location = System::Drawing::Point(160, 138);
-			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(390, 22);
-			this->textBox2->TabIndex = 8;
+			this->authorName_textBox->Location = System::Drawing::Point(160, 138);
+			this->authorName_textBox->Name = L"authorName_textBox";
+			this->authorName_textBox->Size = System::Drawing::Size(390, 22);
+			this->authorName_textBox->TabIndex = 8;
 			// 
-			// label3
+			// publisher_label
 			// 
-			this->label3->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+			this->publisher_label->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
-			this->label3->AutoSize = true;
-			this->label3->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->publisher_label->AutoSize = true;
+			this->publisher_label->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label3->Location = System::Drawing::Point(160, 163);
-			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(136, 28);
-			this->label3->TabIndex = 9;
-			this->label3->Text = L"Издательство";
+			this->publisher_label->Location = System::Drawing::Point(160, 163);
+			this->publisher_label->Name = L"publisher_label";
+			this->publisher_label->Size = System::Drawing::Size(136, 28);
+			this->publisher_label->TabIndex = 9;
+			this->publisher_label->Text = L"Издательство";
 			// 
-			// textBox3
+			// publisher_textBox
 			// 
-			this->textBox3->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+			this->publisher_textBox->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
-			this->textBox3->Location = System::Drawing::Point(160, 194);
-			this->textBox3->Name = L"textBox3";
-			this->textBox3->Size = System::Drawing::Size(390, 22);
-			this->textBox3->TabIndex = 10;
+			this->publisher_textBox->Location = System::Drawing::Point(160, 194);
+			this->publisher_textBox->Name = L"publisher_textBox";
+			this->publisher_textBox->Size = System::Drawing::Size(390, 22);
+			this->publisher_textBox->TabIndex = 10;
 			// 
-			// label4
+			// libSection_label
 			// 
-			this->label4->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+			this->libSection_label->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
-			this->label4->AutoSize = true;
-			this->label4->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->libSection_label->AutoSize = true;
+			this->libSection_label->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label4->Location = System::Drawing::Point(160, 219);
-			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(74, 28);
-			this->label4->TabIndex = 11;
-			this->label4->Text = L"Раздел";
+			this->libSection_label->Location = System::Drawing::Point(160, 219);
+			this->libSection_label->Name = L"libSection_label";
+			this->libSection_label->Size = System::Drawing::Size(74, 28);
+			this->libSection_label->TabIndex = 11;
+			this->libSection_label->Text = L"Раздел";
 			// 
-			// textBox4
+			// libSection_textBox
 			// 
-			this->textBox4->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+			this->libSection_textBox->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
-			this->textBox4->Location = System::Drawing::Point(160, 250);
-			this->textBox4->Name = L"textBox4";
-			this->textBox4->Size = System::Drawing::Size(390, 22);
-			this->textBox4->TabIndex = 12;
+			this->libSection_textBox->Location = System::Drawing::Point(160, 250);
+			this->libSection_textBox->Name = L"libSection_textBox";
+			this->libSection_textBox->Size = System::Drawing::Size(390, 22);
+			this->libSection_textBox->TabIndex = 12;
 			// 
-			// label5
+			// origin_label
 			// 
-			this->label5->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+			this->origin_label->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
-			this->label5->AutoSize = true;
-			this->label5->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->origin_label->AutoSize = true;
+			this->origin_label->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label5->Location = System::Drawing::Point(160, 275);
-			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(162, 28);
-			this->label5->TabIndex = 13;
-			this->label5->Text = L"Происхождение";
+			this->origin_label->Location = System::Drawing::Point(160, 275);
+			this->origin_label->Name = L"origin_label";
+			this->origin_label->Size = System::Drawing::Size(162, 28);
+			this->origin_label->TabIndex = 13;
+			this->origin_label->Text = L"Происхождение";
 			// 
-			// textBox5
+			// origin_textBox
 			// 
-			this->textBox5->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+			this->origin_textBox->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
-			this->textBox5->Location = System::Drawing::Point(160, 306);
-			this->textBox5->Name = L"textBox5";
-			this->textBox5->Size = System::Drawing::Size(390, 22);
-			this->textBox5->TabIndex = 14;
+			this->origin_textBox->Location = System::Drawing::Point(160, 306);
+			this->origin_textBox->Name = L"origin_textBox";
+			this->origin_textBox->Size = System::Drawing::Size(390, 22);
+			this->origin_textBox->TabIndex = 14;
 			// 
-			// label6
+			// assessment_label
 			// 
-			this->label6->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+			this->assessment_label->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
-			this->label6->AutoSize = true;
-			this->label6->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->assessment_label->AutoSize = true;
+			this->assessment_label->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label6->Location = System::Drawing::Point(160, 331);
-			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(140, 28);
-			this->label6->TabIndex = 15;
-			this->label6->Text = L"Оценка книги";
+			this->assessment_label->Location = System::Drawing::Point(160, 331);
+			this->assessment_label->Name = L"assessment_label";
+			this->assessment_label->Size = System::Drawing::Size(140, 28);
+			this->assessment_label->TabIndex = 15;
+			this->assessment_label->Text = L"Оценка книги";
 			// 
-			// richTextBox1
+			// assessment_richTextBox
 			// 
-			this->richTextBox1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+			this->assessment_richTextBox->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
-			this->richTextBox1->Location = System::Drawing::Point(160, 362);
-			this->richTextBox1->Name = L"richTextBox1";
-			this->richTextBox1->Size = System::Drawing::Size(390, 120);
-			this->richTextBox1->TabIndex = 16;
-			this->richTextBox1->Text = L"";
+			this->assessment_richTextBox->Location = System::Drawing::Point(160, 362);
+			this->assessment_richTextBox->Name = L"assessment_richTextBox";
+			this->assessment_richTextBox->Size = System::Drawing::Size(390, 120);
+			this->assessment_richTextBox->TabIndex = 16;
+			this->assessment_richTextBox->Text = L"";
 			// 
-			// button1
+			// saveInDb_button
 			// 
-			this->button1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+			this->saveInDb_button->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
-			this->button1->BackColor = System::Drawing::Color::LightSkyBlue;
-			this->button1->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->saveInDb_button->BackColor = System::Drawing::Color::LightSkyBlue;
+			this->saveInDb_button->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->button1->Location = System::Drawing::Point(160, 576);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(390, 57);
-			this->button1->TabIndex = 17;
-			this->button1->Text = L"Сохранить";
-			this->button1->UseVisualStyleBackColor = false;
+			this->saveInDb_button->Location = System::Drawing::Point(160, 576);
+			this->saveInDb_button->Name = L"saveInDb_button";
+			this->saveInDb_button->Size = System::Drawing::Size(390, 57);
+			this->saveInDb_button->TabIndex = 17;
+			this->saveInDb_button->Text = L"Сохранить";
+			this->saveInDb_button->UseVisualStyleBackColor = false;
 			// 
-			// label7
+			// existance_label
 			// 
-			this->label7->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+			this->existance_label->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
-			this->label7->AutoSize = true;
-			this->label7->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->existance_label->AutoSize = true;
+			this->existance_label->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label7->Location = System::Drawing::Point(160, 485);
-			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(92, 28);
-			this->label7->TabIndex = 18;
-			this->label7->Text = L"Наличие";
+			this->existance_label->Location = System::Drawing::Point(160, 485);
+			this->existance_label->Name = L"existance_label";
+			this->existance_label->Size = System::Drawing::Size(92, 28);
+			this->existance_label->TabIndex = 18;
+			this->existance_label->Text = L"Наличие";
 			// 
-			// radioButton1
+			// existance_radioButton1
 			// 
-			this->radioButton1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+			this->existance_radioButton1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
-			this->radioButton1->AutoSize = true;
-			this->radioButton1->Font = (gcnew System::Drawing::Font(L"Segoe UI", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->existance_radioButton1->AutoSize = true;
+			this->existance_radioButton1->Font = (gcnew System::Drawing::Font(L"Segoe UI", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->radioButton1->Location = System::Drawing::Point(160, 516);
-			this->radioButton1->Name = L"radioButton1";
-			this->radioButton1->Size = System::Drawing::Size(135, 24);
-			this->radioButton1->TabIndex = 19;
-			this->radioButton1->TabStop = true;
-			this->radioButton1->Text = L"Есть в наличии";
-			this->radioButton1->UseVisualStyleBackColor = true;
+			this->existance_radioButton1->Location = System::Drawing::Point(160, 516);
+			this->existance_radioButton1->Name = L"existance_radioButton1";
+			this->existance_radioButton1->Size = System::Drawing::Size(135, 24);
+			this->existance_radioButton1->TabIndex = 19;
+			this->existance_radioButton1->TabStop = true;
+			this->existance_radioButton1->Text = L"Есть в наличии";
+			this->existance_radioButton1->UseVisualStyleBackColor = true;
 			// 
-			// radioButton2
+			// existance_radioButton2
 			// 
-			this->radioButton2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+			this->existance_radioButton2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
-			this->radioButton2->AutoSize = true;
-			this->radioButton2->Font = (gcnew System::Drawing::Font(L"Segoe UI", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->existance_radioButton2->AutoSize = true;
+			this->existance_radioButton2->Font = (gcnew System::Drawing::Font(L"Segoe UI", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->radioButton2->Location = System::Drawing::Point(160, 542);
-			this->radioButton2->Name = L"radioButton2";
-			this->radioButton2->Size = System::Drawing::Size(131, 24);
-			this->radioButton2->TabIndex = 20;
-			this->radioButton2->TabStop = true;
-			this->radioButton2->Text = L"Нет в наличии";
-			this->radioButton2->UseVisualStyleBackColor = true;
+			this->existance_radioButton2->Location = System::Drawing::Point(160, 542);
+			this->existance_radioButton2->Name = L"existance_radioButton2";
+			this->existance_radioButton2->Size = System::Drawing::Size(131, 24);
+			this->existance_radioButton2->TabIndex = 20;
+			this->existance_radioButton2->TabStop = true;
+			this->existance_radioButton2->Text = L"Нет в наличии";
+			this->existance_radioButton2->UseVisualStyleBackColor = true;
 			// 
-			// button2
+			// clearFields_button
 			// 
-			this->button2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+			this->clearFields_button->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
-			this->button2->BackColor = System::Drawing::Color::LightCoral;
-			this->button2->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->clearFields_button->BackColor = System::Drawing::Color::LightCoral;
+			this->clearFields_button->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->button2->Location = System::Drawing::Point(160, 639);
-			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(390, 57);
-			this->button2->TabIndex = 21;
-			this->button2->Text = L"Очистить";
-			this->button2->UseVisualStyleBackColor = false;
+			this->clearFields_button->Location = System::Drawing::Point(160, 639);
+			this->clearFields_button->Name = L"clearFields_button";
+			this->clearFields_button->Size = System::Drawing::Size(390, 57);
+			this->clearFields_button->TabIndex = 21;
+			this->clearFields_button->Text = L"Очистить";
+			this->clearFields_button->UseVisualStyleBackColor = false;
 			// 
 			// EditForm
 			// 
@@ -301,23 +324,23 @@ namespace PersonalBookLibrary {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::Ivory;
 			this->ClientSize = System::Drawing::Size(692, 733);
-			this->Controls->Add(this->button2);
-			this->Controls->Add(this->radioButton2);
-			this->Controls->Add(this->radioButton1);
-			this->Controls->Add(this->label7);
-			this->Controls->Add(this->button1);
-			this->Controls->Add(this->richTextBox1);
-			this->Controls->Add(this->label6);
-			this->Controls->Add(this->textBox5);
-			this->Controls->Add(this->label5);
-			this->Controls->Add(this->textBox4);
-			this->Controls->Add(this->label4);
-			this->Controls->Add(this->textBox3);
-			this->Controls->Add(this->label3);
-			this->Controls->Add(this->textBox2);
-			this->Controls->Add(this->textBox1);
-			this->Controls->Add(this->label2);
-			this->Controls->Add(this->label1);
+			this->Controls->Add(this->clearFields_button);
+			this->Controls->Add(this->existance_radioButton2);
+			this->Controls->Add(this->existance_radioButton1);
+			this->Controls->Add(this->existance_label);
+			this->Controls->Add(this->saveInDb_button);
+			this->Controls->Add(this->assessment_richTextBox);
+			this->Controls->Add(this->assessment_label);
+			this->Controls->Add(this->origin_textBox);
+			this->Controls->Add(this->origin_label);
+			this->Controls->Add(this->libSection_textBox);
+			this->Controls->Add(this->libSection_label);
+			this->Controls->Add(this->publisher_textBox);
+			this->Controls->Add(this->publisher_label);
+			this->Controls->Add(this->authorName_textBox);
+			this->Controls->Add(this->bookName_textBox);
+			this->Controls->Add(this->authorName_label);
+			this->Controls->Add(this->bookName_label);
 			this->MaximizeBox = false;
 			this->MaximumSize = System::Drawing::Size(710, 780);
 			this->MinimumSize = System::Drawing::Size(710, 780);

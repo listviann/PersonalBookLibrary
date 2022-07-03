@@ -71,10 +71,12 @@ namespace PersonalBookLibrary {
 
 
 
-	private: System::Windows::Forms::Label^ existance_label;
+
 	private: System::Windows::Forms::RadioButton^ existance_radioButton1;
 	private: System::Windows::Forms::RadioButton^ existance_radioButton2;
 	private: System::Windows::Forms::Button^ clearFields_button;
+	private: System::Windows::Forms::GroupBox^ bookExistance_groupBox;
+
 
 
 
@@ -108,10 +110,11 @@ namespace PersonalBookLibrary {
 			this->assessment_label = (gcnew System::Windows::Forms::Label());
 			this->assessment_richTextBox = (gcnew System::Windows::Forms::RichTextBox());
 			this->saveInDb_button = (gcnew System::Windows::Forms::Button());
-			this->existance_label = (gcnew System::Windows::Forms::Label());
 			this->existance_radioButton1 = (gcnew System::Windows::Forms::RadioButton());
 			this->existance_radioButton2 = (gcnew System::Windows::Forms::RadioButton());
 			this->clearFields_button = (gcnew System::Windows::Forms::Button());
+			this->bookExistance_groupBox = (gcnew System::Windows::Forms::GroupBox());
+			this->bookExistance_groupBox->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// bookName_label
@@ -261,19 +264,6 @@ namespace PersonalBookLibrary {
 			this->saveInDb_button->Text = L"Сохранить";
 			this->saveInDb_button->UseVisualStyleBackColor = false;
 			// 
-			// existance_label
-			// 
-			this->existance_label->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
-				| System::Windows::Forms::AnchorStyles::Right));
-			this->existance_label->AutoSize = true;
-			this->existance_label->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->existance_label->Location = System::Drawing::Point(160, 485);
-			this->existance_label->Name = L"existance_label";
-			this->existance_label->Size = System::Drawing::Size(92, 28);
-			this->existance_label->TabIndex = 18;
-			this->existance_label->Text = L"Наличие";
-			// 
 			// existance_radioButton1
 			// 
 			this->existance_radioButton1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
@@ -281,7 +271,7 @@ namespace PersonalBookLibrary {
 			this->existance_radioButton1->AutoSize = true;
 			this->existance_radioButton1->Font = (gcnew System::Drawing::Font(L"Segoe UI", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->existance_radioButton1->Location = System::Drawing::Point(160, 516);
+			this->existance_radioButton1->Location = System::Drawing::Point(6, 21);
 			this->existance_radioButton1->Name = L"existance_radioButton1";
 			this->existance_radioButton1->Size = System::Drawing::Size(135, 24);
 			this->existance_radioButton1->TabIndex = 19;
@@ -296,7 +286,7 @@ namespace PersonalBookLibrary {
 			this->existance_radioButton2->AutoSize = true;
 			this->existance_radioButton2->Font = (gcnew System::Drawing::Font(L"Segoe UI", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->existance_radioButton2->Location = System::Drawing::Point(160, 542);
+			this->existance_radioButton2->Location = System::Drawing::Point(5, 51);
 			this->existance_radioButton2->Name = L"existance_radioButton2";
 			this->existance_radioButton2->Size = System::Drawing::Size(131, 24);
 			this->existance_radioButton2->TabIndex = 20;
@@ -318,16 +308,27 @@ namespace PersonalBookLibrary {
 			this->clearFields_button->Text = L"Очистить";
 			this->clearFields_button->UseVisualStyleBackColor = false;
 			// 
+			// bookExistance_groupBox
+			// 
+			this->bookExistance_groupBox->Controls->Add(this->existance_radioButton1);
+			this->bookExistance_groupBox->Controls->Add(this->existance_radioButton2);
+			this->bookExistance_groupBox->Font = (gcnew System::Drawing::Font(L"Segoe UI", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->bookExistance_groupBox->Location = System::Drawing::Point(160, 488);
+			this->bookExistance_groupBox->Name = L"bookExistance_groupBox";
+			this->bookExistance_groupBox->Size = System::Drawing::Size(200, 82);
+			this->bookExistance_groupBox->TabIndex = 22;
+			this->bookExistance_groupBox->TabStop = false;
+			this->bookExistance_groupBox->Text = L"Наличие";
+			// 
 			// EditForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::Ivory;
 			this->ClientSize = System::Drawing::Size(692, 733);
+			this->Controls->Add(this->bookExistance_groupBox);
 			this->Controls->Add(this->clearFields_button);
-			this->Controls->Add(this->existance_radioButton2);
-			this->Controls->Add(this->existance_radioButton1);
-			this->Controls->Add(this->existance_label);
 			this->Controls->Add(this->saveInDb_button);
 			this->Controls->Add(this->assessment_richTextBox);
 			this->Controls->Add(this->assessment_label);
@@ -346,10 +347,17 @@ namespace PersonalBookLibrary {
 			this->MinimumSize = System::Drawing::Size(710, 780);
 			this->Name = L"EditForm";
 			this->Text = L"Изменение книги";
+			this->Load += gcnew System::EventHandler(this, &EditForm::EditForm_Load);
+			this->bookExistance_groupBox->ResumeLayout(false);
+			this->bookExistance_groupBox->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
-	};
+	private: System::Void EditForm_Load(System::Object^ sender, System::EventArgs^ e) {
+		bookExistance_groupBox->Controls->Add(existance_radioButton1);
+		bookExistance_groupBox->Controls->Add(existance_radioButton2);
+	}
+};
 }

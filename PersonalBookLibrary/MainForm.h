@@ -48,7 +48,7 @@ namespace PersonalBookLibrary {
 	private: System::Windows::Forms::TextBox^ origin_textBox;
 	private: System::Windows::Forms::Label^ assessment_label;
 	private: System::Windows::Forms::RichTextBox^ assessment_richTextBox;
-	private: System::Windows::Forms::Label^ existance_label;
+
 	private: System::Windows::Forms::RadioButton^ existance_radioButton1;
 	private: System::Windows::Forms::RadioButton^ existance_radioButton2;
 	private: System::Windows::Forms::Button^ addToDb_button;
@@ -75,6 +75,7 @@ namespace PersonalBookLibrary {
 	private: System::Windows::Forms::MenuStrip^ MainForm_menuStrip;
 	private: System::Windows::Forms::ToolStripMenuItem^ ResultForm_ToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ HelpForm_ToolStripMenuItem;
+	private: System::Windows::Forms::GroupBox^ bookExistance_groupBox;
 
 
 
@@ -107,7 +108,6 @@ namespace PersonalBookLibrary {
 			this->origin_textBox = (gcnew System::Windows::Forms::TextBox());
 			this->assessment_label = (gcnew System::Windows::Forms::Label());
 			this->assessment_richTextBox = (gcnew System::Windows::Forms::RichTextBox());
-			this->existance_label = (gcnew System::Windows::Forms::Label());
 			this->existance_radioButton1 = (gcnew System::Windows::Forms::RadioButton());
 			this->existance_radioButton2 = (gcnew System::Windows::Forms::RadioButton());
 			this->addToDb_button = (gcnew System::Windows::Forms::Button());
@@ -115,7 +115,9 @@ namespace PersonalBookLibrary {
 			this->MainForm_menuStrip = (gcnew System::Windows::Forms::MenuStrip());
 			this->ResultForm_ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->HelpForm_ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->bookExistance_groupBox = (gcnew System::Windows::Forms::GroupBox());
 			this->MainForm_menuStrip->SuspendLayout();
+			this->bookExistance_groupBox->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// bookName_label
@@ -251,19 +253,6 @@ namespace PersonalBookLibrary {
 			this->assessment_richTextBox->TabIndex = 11;
 			this->assessment_richTextBox->Text = L"";
 			// 
-			// existance_label
-			// 
-			this->existance_label->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
-				| System::Windows::Forms::AnchorStyles::Right));
-			this->existance_label->AutoSize = true;
-			this->existance_label->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->existance_label->Location = System::Drawing::Point(160, 485);
-			this->existance_label->Name = L"existance_label";
-			this->existance_label->Size = System::Drawing::Size(92, 28);
-			this->existance_label->TabIndex = 12;
-			this->existance_label->Text = L"Наличие";
-			// 
 			// existance_radioButton1
 			// 
 			this->existance_radioButton1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
@@ -271,7 +260,7 @@ namespace PersonalBookLibrary {
 			this->existance_radioButton1->AutoSize = true;
 			this->existance_radioButton1->Font = (gcnew System::Drawing::Font(L"Segoe UI", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->existance_radioButton1->Location = System::Drawing::Point(160, 516);
+			this->existance_radioButton1->Location = System::Drawing::Point(6, 19);
 			this->existance_radioButton1->Name = L"existance_radioButton1";
 			this->existance_radioButton1->Size = System::Drawing::Size(135, 24);
 			this->existance_radioButton1->TabIndex = 13;
@@ -286,7 +275,7 @@ namespace PersonalBookLibrary {
 			this->existance_radioButton2->AutoSize = true;
 			this->existance_radioButton2->Font = (gcnew System::Drawing::Font(L"Segoe UI", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->existance_radioButton2->Location = System::Drawing::Point(160, 546);
+			this->existance_radioButton2->Location = System::Drawing::Point(6, 49);
 			this->existance_radioButton2->Name = L"existance_radioButton2";
 			this->existance_radioButton2->Size = System::Drawing::Size(131, 24);
 			this->existance_radioButton2->TabIndex = 14;
@@ -301,7 +290,7 @@ namespace PersonalBookLibrary {
 			this->addToDb_button->BackColor = System::Drawing::Color::LightSkyBlue;
 			this->addToDb_button->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->addToDb_button->Location = System::Drawing::Point(160, 576);
+			this->addToDb_button->Location = System::Drawing::Point(160, 573);
 			this->addToDb_button->Name = L"addToDb_button";
 			this->addToDb_button->Size = System::Drawing::Size(390, 57);
 			this->addToDb_button->TabIndex = 15;
@@ -315,7 +304,7 @@ namespace PersonalBookLibrary {
 			this->clearFields_button->BackColor = System::Drawing::Color::LightCoral;
 			this->clearFields_button->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->clearFields_button->Location = System::Drawing::Point(160, 639);
+			this->clearFields_button->Location = System::Drawing::Point(160, 636);
 			this->clearFields_button->Name = L"clearFields_button";
 			this->clearFields_button->Size = System::Drawing::Size(390, 57);
 			this->clearFields_button->TabIndex = 16;
@@ -331,22 +320,35 @@ namespace PersonalBookLibrary {
 			});
 			this->MainForm_menuStrip->Location = System::Drawing::Point(0, 0);
 			this->MainForm_menuStrip->Name = L"MainForm_menuStrip";
-			this->MainForm_menuStrip->Size = System::Drawing::Size(692, 28);
+			this->MainForm_menuStrip->Size = System::Drawing::Size(692, 30);
 			this->MainForm_menuStrip->TabIndex = 17;
 			// 
 			// ResultForm_ToolStripMenuItem
 			// 
 			this->ResultForm_ToolStripMenuItem->Name = L"ResultForm_ToolStripMenuItem";
-			this->ResultForm_ToolStripMenuItem->Size = System::Drawing::Size(111, 24);
+			this->ResultForm_ToolStripMenuItem->Size = System::Drawing::Size(111, 26);
 			this->ResultForm_ToolStripMenuItem->Text = L"База данных";
 			this->ResultForm_ToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::ResultForm_ToolStripMenuItem_Click);
 			// 
 			// HelpForm_ToolStripMenuItem
 			// 
 			this->HelpForm_ToolStripMenuItem->Name = L"HelpForm_ToolStripMenuItem";
-			this->HelpForm_ToolStripMenuItem->Size = System::Drawing::Size(83, 24);
+			this->HelpForm_ToolStripMenuItem->Size = System::Drawing::Size(83, 26);
 			this->HelpForm_ToolStripMenuItem->Text = L"Помощь";
 			this->HelpForm_ToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::HelpForm_ToolStripMenuItem_Click);
+			// 
+			// bookExistance_groupBox
+			// 
+			this->bookExistance_groupBox->Controls->Add(this->existance_radioButton1);
+			this->bookExistance_groupBox->Controls->Add(this->existance_radioButton2);
+			this->bookExistance_groupBox->Font = (gcnew System::Drawing::Font(L"Segoe UI", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->bookExistance_groupBox->Location = System::Drawing::Point(160, 488);
+			this->bookExistance_groupBox->Name = L"bookExistance_groupBox";
+			this->bookExistance_groupBox->Size = System::Drawing::Size(390, 79);
+			this->bookExistance_groupBox->TabIndex = 18;
+			this->bookExistance_groupBox->TabStop = false;
+			this->bookExistance_groupBox->Text = L"Наличие";
 			// 
 			// MainForm
 			// 
@@ -354,11 +356,9 @@ namespace PersonalBookLibrary {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::Ivory;
 			this->ClientSize = System::Drawing::Size(692, 733);
+			this->Controls->Add(this->bookExistance_groupBox);
 			this->Controls->Add(this->clearFields_button);
 			this->Controls->Add(this->addToDb_button);
-			this->Controls->Add(this->existance_radioButton2);
-			this->Controls->Add(this->existance_radioButton1);
-			this->Controls->Add(this->existance_label);
 			this->Controls->Add(this->assessment_richTextBox);
 			this->Controls->Add(this->assessment_label);
 			this->Controls->Add(this->origin_textBox);
@@ -378,8 +378,11 @@ namespace PersonalBookLibrary {
 			this->MinimumSize = System::Drawing::Size(710, 780);
 			this->Name = L"MainForm";
 			this->Text = L"Добавление книги";
+			this->Load += gcnew System::EventHandler(this, &MainForm::MainForm_Load);
 			this->MainForm_menuStrip->ResumeLayout(false);
 			this->MainForm_menuStrip->PerformLayout();
+			this->bookExistance_groupBox->ResumeLayout(false);
+			this->bookExistance_groupBox->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -392,6 +395,10 @@ namespace PersonalBookLibrary {
 private: System::Void HelpForm_ToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	HelpForm^ helpForm = gcnew HelpForm;
 	helpForm->Show();
+}
+private: System::Void MainForm_Load(System::Object^ sender, System::EventArgs^ e) {
+	bookExistance_groupBox->Controls->Add(existance_radioButton1);
+	bookExistance_groupBox->Controls->Add(existance_radioButton2);
 }
 };
 }

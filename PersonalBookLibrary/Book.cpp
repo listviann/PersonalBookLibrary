@@ -3,62 +3,64 @@
 
 using namespace System;
 
+Book::Book()
+{
+
+}
+
 Book::Book(String^ _name, String^ _author,
 	String^ _publisher, String^ _libSection,
-	String^ _origin, String^ _assessment, bool _exists)
+	String^ _origin, int _rating, bool _exists)
 {
 	name = _name;
 	author = _author;
 	publisher = _publisher;
 	libSection = _libSection;
 	origin = _origin;
-	assessment = _assessment;
-	exists = exists;
+	rating = _rating;
+	exists = _exists;
 }
 
-Book::Book()
-{
-
-}
-
-String^::Book::getName()
+// геттеры
+String^ Book::getName()
 {
 	return name;
 }
 
-String^::Book::getAuthor()
+String^ Book::getAuthor()
 {
 	return author;
 }
 
-String^::Book::getPublisher()
+String^ Book::getPublisher()
 {
 	return publisher;
 }
 
-String^::Book::getLibSection()
+String^ Book::getLibSection()
 {
 	return libSection;
 }
 
-String^::Book::getOrigin()
+String^ Book::getOrigin()
 {
 	return origin;
 }
 
-String^::Book::getAssessment()
+int Book::getRating()
 {
-	return assessment;
+	return rating;
 }
 
-bool::Book::checkExistance()
+bool Book::checkExistance()
 {
 	return exists;
 }
 
+// сеттеры
 void Book::setName(String^ _name)
 {
-	name = _name;
+	name = name;
 }
 
 void Book::setAuthor(String^ _author)
@@ -81,12 +83,12 @@ void Book::setOrigin(String^ _origin)
 	origin = _origin;
 }
 
-void Book::SetAssessment(String^ _assessment)
+void Book::setRating(int _rating)
 {
-	assessment = _assessment;
+	rating = rating;
 }
 
-void Book::setExistance(bool _exists)
+void Book::setExistanceMarker(bool _existance)
 {
-	exists = _exists;
+	exists = _existance;
 }

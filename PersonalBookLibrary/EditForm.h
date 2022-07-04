@@ -51,7 +51,8 @@ namespace PersonalBookLibrary {
 	private: System::Windows::Forms::Label^ origin_label;
 	private: System::Windows::Forms::TextBox^ origin_textBox;
 	private: System::Windows::Forms::Label^ assessment_label;
-	private: System::Windows::Forms::RichTextBox^ assessment_richTextBox;
+
+
 	private: System::Windows::Forms::Button^ saveInDb_button;
 
 
@@ -76,6 +77,7 @@ namespace PersonalBookLibrary {
 	private: System::Windows::Forms::RadioButton^ existance_radioButton2;
 	private: System::Windows::Forms::Button^ clearFields_button;
 	private: System::Windows::Forms::GroupBox^ bookExistance_groupBox;
+	private: System::Windows::Forms::TextBox^ rating_textBox;
 
 
 
@@ -108,12 +110,12 @@ namespace PersonalBookLibrary {
 			this->origin_label = (gcnew System::Windows::Forms::Label());
 			this->origin_textBox = (gcnew System::Windows::Forms::TextBox());
 			this->assessment_label = (gcnew System::Windows::Forms::Label());
-			this->assessment_richTextBox = (gcnew System::Windows::Forms::RichTextBox());
 			this->saveInDb_button = (gcnew System::Windows::Forms::Button());
 			this->existance_radioButton1 = (gcnew System::Windows::Forms::RadioButton());
 			this->existance_radioButton2 = (gcnew System::Windows::Forms::RadioButton());
 			this->clearFields_button = (gcnew System::Windows::Forms::Button());
 			this->bookExistance_groupBox = (gcnew System::Windows::Forms::GroupBox());
+			this->rating_textBox = (gcnew System::Windows::Forms::TextBox());
 			this->bookExistance_groupBox->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -240,16 +242,6 @@ namespace PersonalBookLibrary {
 			this->assessment_label->TabIndex = 15;
 			this->assessment_label->Text = L"Оценка книги";
 			// 
-			// assessment_richTextBox
-			// 
-			this->assessment_richTextBox->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
-				| System::Windows::Forms::AnchorStyles::Right));
-			this->assessment_richTextBox->Location = System::Drawing::Point(160, 362);
-			this->assessment_richTextBox->Name = L"assessment_richTextBox";
-			this->assessment_richTextBox->Size = System::Drawing::Size(390, 120);
-			this->assessment_richTextBox->TabIndex = 16;
-			this->assessment_richTextBox->Text = L"";
-			// 
 			// saveInDb_button
 			// 
 			this->saveInDb_button->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
@@ -257,7 +249,7 @@ namespace PersonalBookLibrary {
 			this->saveInDb_button->BackColor = System::Drawing::Color::LightSkyBlue;
 			this->saveInDb_button->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->saveInDb_button->Location = System::Drawing::Point(160, 576);
+			this->saveInDb_button->Location = System::Drawing::Point(160, 478);
 			this->saveInDb_button->Name = L"saveInDb_button";
 			this->saveInDb_button->Size = System::Drawing::Size(390, 57);
 			this->saveInDb_button->TabIndex = 17;
@@ -301,7 +293,7 @@ namespace PersonalBookLibrary {
 			this->clearFields_button->BackColor = System::Drawing::Color::LightCoral;
 			this->clearFields_button->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->clearFields_button->Location = System::Drawing::Point(160, 639);
+			this->clearFields_button->Location = System::Drawing::Point(160, 541);
 			this->clearFields_button->Name = L"clearFields_button";
 			this->clearFields_button->Size = System::Drawing::Size(390, 57);
 			this->clearFields_button->TabIndex = 21;
@@ -314,23 +306,32 @@ namespace PersonalBookLibrary {
 			this->bookExistance_groupBox->Controls->Add(this->existance_radioButton2);
 			this->bookExistance_groupBox->Font = (gcnew System::Drawing::Font(L"Segoe UI", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->bookExistance_groupBox->Location = System::Drawing::Point(160, 488);
+			this->bookExistance_groupBox->Location = System::Drawing::Point(160, 390);
 			this->bookExistance_groupBox->Name = L"bookExistance_groupBox";
 			this->bookExistance_groupBox->Size = System::Drawing::Size(200, 82);
 			this->bookExistance_groupBox->TabIndex = 22;
 			this->bookExistance_groupBox->TabStop = false;
 			this->bookExistance_groupBox->Text = L"Наличие";
 			// 
+			// rating_textBox
+			// 
+			this->rating_textBox->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
+			this->rating_textBox->Location = System::Drawing::Point(160, 362);
+			this->rating_textBox->Name = L"rating_textBox";
+			this->rating_textBox->Size = System::Drawing::Size(390, 22);
+			this->rating_textBox->TabIndex = 23;
+			// 
 			// EditForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::Ivory;
-			this->ClientSize = System::Drawing::Size(692, 733);
+			this->ClientSize = System::Drawing::Size(692, 663);
+			this->Controls->Add(this->rating_textBox);
 			this->Controls->Add(this->bookExistance_groupBox);
 			this->Controls->Add(this->clearFields_button);
 			this->Controls->Add(this->saveInDb_button);
-			this->Controls->Add(this->assessment_richTextBox);
 			this->Controls->Add(this->assessment_label);
 			this->Controls->Add(this->origin_textBox);
 			this->Controls->Add(this->origin_label);
@@ -343,8 +344,8 @@ namespace PersonalBookLibrary {
 			this->Controls->Add(this->authorName_label);
 			this->Controls->Add(this->bookName_label);
 			this->MaximizeBox = false;
-			this->MaximumSize = System::Drawing::Size(710, 780);
-			this->MinimumSize = System::Drawing::Size(710, 780);
+			this->MaximumSize = System::Drawing::Size(710, 710);
+			this->MinimumSize = System::Drawing::Size(710, 710);
 			this->Name = L"EditForm";
 			this->Text = L"Изменение книги";
 			this->Load += gcnew System::EventHandler(this, &EditForm::EditForm_Load);

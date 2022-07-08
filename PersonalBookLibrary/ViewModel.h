@@ -5,6 +5,7 @@
 
 using namespace System;
 
+// ViewModel для связи объекта BookLibrary со всеми окнами приложения
 ref class ViewModel
 {
 public:

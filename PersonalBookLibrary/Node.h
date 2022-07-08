@@ -8,7 +8,7 @@ ref class Node
 {
 public:
 	T data; // ссылка на данные
-	Node<T>^ next;
+	Node<T>^ next; // ссылка на следующий узел
 
 	// конструкторы
 	Node();

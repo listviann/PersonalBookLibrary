@@ -181,10 +181,14 @@ namespace PersonalBookLibrary {
 
 		}
 #pragma endregion
+	// Обработчик кнопки изменения объекта
 	private: System::Void editBook_button_Click(System::Object^ sender, System::EventArgs^ e) {
+		// получение выбранного объекта в listBox
 		Book^ item = (Book^)database_listBox->SelectedItem;
+		// создание и открытие формы для изменения объекта
 		EditForm^ editForm = gcnew EditForm(item);
-
+		
+		// вывод информации в консоль Visual Studio (для отладки и дебага)
 		Debug::WriteLine(item->name + "CHANGED NAME IN LL");
 		editForm->Show();
 	}
@@ -192,13 +196,20 @@ private: System::Void database_listBox_SelectedIndexChanged(System::Object^ send
 {
 
 }
+// Обработчик формы при её загрузке
 private: System::Void ResultForm_Load(System::Object^ sender, System::EventArgs^ e) {
+	// присвоение источника данных компоненту listBox (источник данных - объект bookLibrary)
 	database_listBox->DataSource = ViewModel::bookLibrary->toList();
 	database_listBox->Update();
 }
+
+// Обработчик кнопки удаления объекта
 private: System::Void deleteBook_button_Click(System::Object^ sender, System::EventArgs^ e) {
+	// получение выбранного объекта
 	Book^ item = (Book^)database_listBox->SelectedItem;
+	// удаление выбранного объекта из списка
 	ViewModel::bookLibrary->deleteBook(item);
+	// обновление компонента listBox
 	database_listBox->DataSource = nullptr;
 	database_listBox->DataSource = ViewModel::bookLibrary->toList();
 }

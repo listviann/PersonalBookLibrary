@@ -413,8 +413,10 @@ namespace PersonalBookLibrary {
 			bookExistance_groupBox->Controls->Add(existance_radioButton1);
 			bookExistance_groupBox->Controls->Add(existance_radioButton2);
 		}
-		// ADD
+		// Обработчик для кнопки добавления
+		// В данном обработчике реализована логика добавления объекта в БД
 		private: System::Void addToDb_button_Click(System::Object^ sender, System::EventArgs^ e) {
+			// присваивание переменным значений из текстовых полей
 			String^ bookName = bookName_textBox->Text;
 			String^ authorName = authorName_textBox->Text;
 			String^ publisherName = publisher_textBox->Text;
@@ -423,6 +425,7 @@ namespace PersonalBookLibrary {
 			int bookRating = Convert::ToInt32(rating_textBox->Text);
 			bool bookExistance;
 
+			// присваивание переменной-маркеру о наличии/отсутствии значения в зависимости от выбранного компонента RadioButton
 			if (existance_radioButton1->Checked)
 			{
 				bookExistance = true;
@@ -432,14 +435,18 @@ namespace PersonalBookLibrary {
 				bookExistance = false;
 			}
 
+			// создание объекта класса Book
 			Book^ book = gcnew Book(bookName, authorName, publisherName,
 				librarySection, bookOrigin, bookRating, bookExistance);
+
+			// добавление объекта класса Book в объект класса BookLibrary
 			ViewModel::bookLibrary->addBook(book);
 		}
 		private: System::Void bookName_textBox_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 		}
 
-		// CLEAR FIELDS
+		// Обработчик для кнопки очистки текстовых полей
+		// При нажатии на данную кнопку все текстовые поля очищаются
 		private: System::Void clearFields_button_Click(System::Object^ sender, System::EventArgs^ e) {
 			bookName_textBox->Text = " ";
 			authorName_textBox->Text = " ";
@@ -448,7 +455,7 @@ namespace PersonalBookLibrary {
 			origin_textBox->Text = " ";
 			rating_textBox->Text = " ";
 
-			ViewModel::bookLibrary->printLib();
+			//ViewModel::bookLibrary->printLib();
 		}
 	};
 }

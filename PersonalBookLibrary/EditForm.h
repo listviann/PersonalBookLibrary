@@ -18,7 +18,8 @@ namespace PersonalBookLibrary {
 	public:
 		Book^ selectedItem;
 
-		EditForm(Book^ item) // 'void' has been deleted
+		// В конструктор формы передается объект класса Book для дальнейшего изменения выбранного объекта
+		EditForm(Book^ item) 
 		{
 			InitializeComponent();
 			//
@@ -383,11 +384,15 @@ namespace PersonalBookLibrary {
 			existance_radioButton2->Checked = true;
 		}
 	}
+
+// Обработчик кнопки для сохранения изменений в БД
 private: System::Void saveInDb_button_Click(System::Object^ sender, System::EventArgs^ e) {
 	//System::Diagnostics::Debug::WriteLine(selectedItem->checkExistance());
 
+	// получение выбранного в listBox (ResultForm.h) объекта
 	Book^ selectedBook = ViewModel::bookLibrary->toList()[ViewModel::bookLibrary->toList()->IndexOf(selectedItem)];
 
+	// присваивание переменным значений из текстовых полей
 	String^ bookName = bookName_textBox->Text;
 	String^ authorName = authorName_textBox->Text;
 	String^ publisherName = publisher_textBox->Text;
@@ -396,6 +401,7 @@ private: System::Void saveInDb_button_Click(System::Object^ sender, System::Even
 	int bookRating = Convert::ToInt32(rating_textBox->Text);
 	bool bookExistance;
 
+	// присваивание переменной-маркеру о наличии/отсутствии значения в зависимости от выбранного компонента RadioButton
 	if (existance_radioButton1->Checked)
 	{
 		bookExistance = true;
@@ -405,6 +411,7 @@ private: System::Void saveInDb_button_Click(System::Object^ sender, System::Even
 		bookExistance = false;
 	}
 
+	// изменение значений свойств выбранного объекта
 	selectedBook->name = bookName;
 	selectedBook->author = authorName;
 	selectedBook->publisher = publisherName;
@@ -414,9 +421,12 @@ private: System::Void saveInDb_button_Click(System::Object^ sender, System::Even
 	selectedBook->exists = bookExistance;
 
 	//ViewModel::bookLibrary->editBook(selectedItem, bookName, authorName, publisherName, librarySection, bookOrigin, bookRating, bookExistance);
+	// вывод информации в консоль Visual Studio (для отладки и дебага)
 	System::Diagnostics::Debug::WriteLine("EDITED NAME: " + selectedBook->name);
 	this->Close();
 }
+
+// Обработчик кнопки для очистки текстовых полей
 private: System::Void clearFields_button_Click(System::Object^ sender, System::EventArgs^ e) {
 	bookName_textBox->Text = "";
 	authorName_textBox->Text = "";

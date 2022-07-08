@@ -121,12 +121,12 @@
     <ClCompile Include="Book.cpp" />
     <ClCompile Include="BookLibrary.cpp" />
     <ClCompile Include="EditForm.cpp" />
-    <ClCompile Include="GreetingForm.cpp" />
     <ClCompile Include="HelpForm.cpp" />
     <ClCompile Include="MainForm.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="ResultForm.cpp" />
     <ClCompile Include="SinglyLinkedList.cpp" />
+    <ClCompile Include="ViewModel.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Book.h" />
@@ -149,6 +149,7 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="SinglyLinkedList.h" />
+    <ClInclude Include="ViewModel.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="PersonalBookLibrary.rc" />

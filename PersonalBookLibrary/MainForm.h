@@ -1,6 +1,10 @@
 #pragma once
 #include "HelpForm.h"
 #include "ResultForm.h"
+#include "GreetingForm.h"
+#include "Book.h"
+#include "BookLibrary.h"
+#include "ViewModel.h"
 
 namespace PersonalBookLibrary {
 
@@ -10,6 +14,7 @@ namespace PersonalBookLibrary {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace System::Diagnostics;
 
 	/// <summary>
 	/// Summary for MainForm
@@ -24,6 +29,8 @@ namespace PersonalBookLibrary {
 			//TODO: Add the constructor code here
 			//
 		}
+
+
 
 	protected:
 		/// <summary>
@@ -89,7 +96,7 @@ namespace PersonalBookLibrary {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -143,6 +150,7 @@ namespace PersonalBookLibrary {
 			this->bookName_textBox->Name = L"bookName_textBox";
 			this->bookName_textBox->Size = System::Drawing::Size(390, 22);
 			this->bookName_textBox->TabIndex = 1;
+			this->bookName_textBox->TextChanged += gcnew System::EventHandler(this, &MainForm::bookName_textBox_TextChanged);
 			// 
 			// authorName_label
 			// 
@@ -288,6 +296,7 @@ namespace PersonalBookLibrary {
 			this->addToDb_button->TabIndex = 15;
 			this->addToDb_button->Text = L"Добавить";
 			this->addToDb_button->UseVisualStyleBackColor = false;
+			this->addToDb_button->Click += gcnew System::EventHandler(this, &MainForm::addToDb_button_Click);
 			// 
 			// clearFields_button
 			// 
@@ -302,6 +311,7 @@ namespace PersonalBookLibrary {
 			this->clearFields_button->TabIndex = 16;
 			this->clearFields_button->Text = L"Очистить";
 			this->clearFields_button->UseVisualStyleBackColor = false;
+			this->clearFields_button->Click += gcnew System::EventHandler(this, &MainForm::clearFields_button_Click);
 			// 
 			// MainForm_menuStrip
 			// 
@@ -389,17 +399,56 @@ namespace PersonalBookLibrary {
 
 		}
 #pragma endregion
-	private: System::Void ResultForm_ToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-		ResultForm^ resultForm = gcnew ResultForm;
-		resultForm->Show();
-	}
-private: System::Void HelpForm_ToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-	HelpForm^ helpForm = gcnew HelpForm;
-	helpForm->Show();
-}
-private: System::Void MainForm_Load(System::Object^ sender, System::EventArgs^ e) {
-	bookExistance_groupBox->Controls->Add(existance_radioButton1);
-	bookExistance_groupBox->Controls->Add(existance_radioButton2);
-}
-};
+		private: System::Void ResultForm_ToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+			ResultForm^ resultForm = gcnew ResultForm;
+			resultForm->Show();
+		}
+		private: System::Void HelpForm_ToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+			HelpForm^ helpForm = gcnew HelpForm;
+			helpForm->Show();
+			/*GreetingForm^ greetingForm = gcnew GreetingForm();
+			greetingForm->Show();*/
+		}
+		private: System::Void MainForm_Load(System::Object^ sender, System::EventArgs^ e) {
+			bookExistance_groupBox->Controls->Add(existance_radioButton1);
+			bookExistance_groupBox->Controls->Add(existance_radioButton2);
+		}
+		// ADD
+		private: System::Void addToDb_button_Click(System::Object^ sender, System::EventArgs^ e) {
+			String^ bookName = bookName_textBox->Text;
+			String^ authorName = authorName_textBox->Text;
+			String^ publisherName = publisher_textBox->Text;
+			String^ librarySection = libSection_textBox->Text;
+			String^ bookOrigin = origin_textBox->Text;
+			int bookRating = Convert::ToInt32(rating_textBox->Text);
+			bool bookExistance;
+
+			if (existance_radioButton1->Checked)
+			{
+				bookExistance = true;
+			}
+			else if (existance_radioButton2->Checked)
+			{
+				bookExistance = false;
+			}
+
+			Book^ book = gcnew Book(bookName, authorName, publisherName,
+				librarySection, bookOrigin, bookRating, bookExistance);
+			ViewModel::bookLibrary->addBook(book);
+		}
+		private: System::Void bookName_textBox_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+		}
+
+		// CLEAR FIELDS
+		private: System::Void clearFields_button_Click(System::Object^ sender, System::EventArgs^ e) {
+			bookName_textBox->Text = " ";
+			authorName_textBox->Text = " ";
+			publisher_textBox->Text = " ";
+			libSection_textBox->Text = " ";
+			origin_textBox->Text = " ";
+			rating_textBox->Text = " ";
+
+			ViewModel::bookLibrary->printLib();
+		}
+	};
 }

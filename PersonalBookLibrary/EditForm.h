@@ -1,4 +1,5 @@
 #pragma once
+#include "ViewModel.h"
 
 namespace PersonalBookLibrary {
 
@@ -15,12 +16,16 @@ namespace PersonalBookLibrary {
 	public ref class EditForm : public System::Windows::Forms::Form
 	{
 	public:
-		EditForm(void)
+		Book^ selectedItem;
+
+		EditForm(Book^ item) // 'void' has been deleted
 		{
 			InitializeComponent();
 			//
 			//TODO: Add the constructor code here
 			//
+
+			selectedItem = item;
 		}
 
 	protected:
@@ -255,6 +260,7 @@ namespace PersonalBookLibrary {
 			this->saveInDb_button->TabIndex = 17;
 			this->saveInDb_button->Text = L"Сохранить";
 			this->saveInDb_button->UseVisualStyleBackColor = false;
+			this->saveInDb_button->Click += gcnew System::EventHandler(this, &EditForm::saveInDb_button_Click);
 			// 
 			// existance_radioButton1
 			// 
@@ -299,6 +305,7 @@ namespace PersonalBookLibrary {
 			this->clearFields_button->TabIndex = 21;
 			this->clearFields_button->Text = L"Очистить";
 			this->clearFields_button->UseVisualStyleBackColor = false;
+			this->clearFields_button->Click += gcnew System::EventHandler(this, &EditForm::clearFields_button_Click);
 			// 
 			// bookExistance_groupBox
 			// 
@@ -359,6 +366,64 @@ namespace PersonalBookLibrary {
 	private: System::Void EditForm_Load(System::Object^ sender, System::EventArgs^ e) {
 		bookExistance_groupBox->Controls->Add(existance_radioButton1);
 		bookExistance_groupBox->Controls->Add(existance_radioButton2);
+
+		bookName_textBox->Text = selectedItem->getName();
+		authorName_textBox->Text = selectedItem->getAuthor();
+		publisher_textBox->Text = selectedItem->getPublisher();
+		libSection_textBox->Text = selectedItem->getLibSection();
+		origin_textBox->Text = selectedItem->getOrigin();
+		rating_textBox->Text = Convert::ToString(selectedItem->getRating());
+		
+		if (selectedItem->checkExistance() == true)
+		{
+			existance_radioButton1->Checked = true;
+		}
+		else if (selectedItem->checkExistance() == false)
+		{
+			existance_radioButton2->Checked = true;
+		}
 	}
+private: System::Void saveInDb_button_Click(System::Object^ sender, System::EventArgs^ e) {
+	//System::Diagnostics::Debug::WriteLine(selectedItem->checkExistance());
+
+	Book^ selectedBook = ViewModel::bookLibrary->toList()[ViewModel::bookLibrary->toList()->IndexOf(selectedItem)];
+
+	String^ bookName = bookName_textBox->Text;
+	String^ authorName = authorName_textBox->Text;
+	String^ publisherName = publisher_textBox->Text;
+	String^ librarySection = libSection_textBox->Text;
+	String^ bookOrigin = origin_textBox->Text;
+	int bookRating = Convert::ToInt32(rating_textBox->Text);
+	bool bookExistance;
+
+	if (existance_radioButton1->Checked)
+	{
+		bookExistance = true;
+	}
+	else if (existance_radioButton2->Checked)
+	{
+		bookExistance = false;
+	}
+
+	selectedBook->name = bookName;
+	selectedBook->author = authorName;
+	selectedBook->publisher = publisherName;
+	selectedBook->libSection = librarySection;
+	selectedBook->origin = bookOrigin;
+	selectedBook->rating = bookRating;
+	selectedBook->exists = bookExistance;
+
+	//ViewModel::bookLibrary->editBook(selectedItem, bookName, authorName, publisherName, librarySection, bookOrigin, bookRating, bookExistance);
+	System::Diagnostics::Debug::WriteLine("EDITED NAME: " + selectedBook->getName());
+	this->Close();
+}
+private: System::Void clearFields_button_Click(System::Object^ sender, System::EventArgs^ e) {
+	bookName_textBox->Text = "";
+	authorName_textBox->Text = "";
+	publisher_textBox->Text = "";
+	libSection_textBox->Text = "";
+	origin_textBox->Text = "";
+	rating_textBox->Text = "";
+}
 };
 }

@@ -7,21 +7,25 @@ using namespace System;
 ref class BookLibrary
 {
 public:
-	void addBook(String^ _name, String^ _author,
-		String^ _publisher, String^ _libSection,
-		String^ _origin, int _rating, bool _exist, SinglyLinkedList<Book^>^ _books); // добавление книги в связный список
+	BookLibrary() { }
 
-	void deleteBook(SinglyLinkedList<Book^>^ _books); // удаление книги из связного списка
+	void addBook(Book^ _book); // добавление книги в связный список
 
-	void editBook(String^ _name, String^ _author,
-		String^ _publisher, String^ _libSection,
-		String^ _origin, int _rating, bool _exist, SinglyLinkedList<Book^>^ _books); // редактирование данных книги
+	void deleteBook(Book^ _book); // удаление книги из связного списка
+
+	//void editBook(Book^ _book, String^ _name, String^ _author,
+	//	String^ _publisher, String^ _libSection,
+	//	String^ _origin, int _rating, bool _exist); // редактирование данных книги
 
 	Book^ find(String^ parameter); // поиск в базе данных по заданному параметру
-	void addListToDb(SinglyLinkedList<Book^>^ _books); // добавление списка с элементами в базу данных
+
+	void addListToDb(); // добавление списка с элементами в базу данных
+
+	void printLib();
 
 	SinglyLinkedList<Book^>^ getListFromDb(String^ filepath); // получение списка с элементами из базы данных
-private:
-	SinglyLinkedList<Book^>^ books; // односвязный список, содержащий объекты книги
-};
 
+	System::Collections::Generic::List<Book^>^ toList();
+
+	SinglyLinkedList<Book^>^ books = gcnew SinglyLinkedList<Book^>; // односвязный список, содержащий объекты книги	
+};

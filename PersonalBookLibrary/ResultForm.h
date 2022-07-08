@@ -1,5 +1,6 @@
 #pragma once
 #include "EditForm.h"
+#include "ViewModel.h"
 
 namespace PersonalBookLibrary {
 
@@ -90,6 +91,7 @@ namespace PersonalBookLibrary {
 			this->database_listBox->Name = L"database_listBox";
 			this->database_listBox->Size = System::Drawing::Size(443, 308);
 			this->database_listBox->TabIndex = 0;
+			this->database_listBox->SelectedIndexChanged += gcnew System::EventHandler(this, &ResultForm::database_listBox_SelectedIndexChanged);
 			// 
 			// searchBar_textBox
 			// 
@@ -141,6 +143,7 @@ namespace PersonalBookLibrary {
 			this->deleteBook_button->TabIndex = 6;
 			this->deleteBook_button->Text = L"Удалить";
 			this->deleteBook_button->UseVisualStyleBackColor = false;
+			this->deleteBook_button->Click += gcnew System::EventHandler(this, &ResultForm::deleteBook_button_Click);
 			// 
 			// search_button
 			// 
@@ -171,14 +174,32 @@ namespace PersonalBookLibrary {
 			this->MinimumSize = System::Drawing::Size(485, 525);
 			this->Name = L"ResultForm";
 			this->Text = L"База данных";
+			this->Load += gcnew System::EventHandler(this, &ResultForm::ResultForm_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
 	private: System::Void editBook_button_Click(System::Object^ sender, System::EventArgs^ e) {
-		EditForm^ editForm = gcnew EditForm;
+		Book^ item = (Book^)database_listBox->SelectedItem;
+		EditForm^ editForm = gcnew EditForm(item);
+
+		Debug::WriteLine(item->name + "CHANGED NAME IN LL");
 		editForm->Show();
 	}
+private: System::Void database_listBox_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) 
+{
+
+}
+private: System::Void ResultForm_Load(System::Object^ sender, System::EventArgs^ e) {
+	database_listBox->DataSource = ViewModel::bookLibrary->toList();
+	database_listBox->Update();
+}
+private: System::Void deleteBook_button_Click(System::Object^ sender, System::EventArgs^ e) {
+	Book^ item = (Book^)database_listBox->SelectedItem;
+	ViewModel::bookLibrary->deleteBook(item);
+	database_listBox->DataSource = nullptr;
+	database_listBox->DataSource = ViewModel::bookLibrary->toList();
+}
 };
 }

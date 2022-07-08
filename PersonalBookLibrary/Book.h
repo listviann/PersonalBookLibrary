@@ -44,8 +44,6 @@ public:
 			+ "\nRating: " + this->rating
 			+ "\nExistance: " + this->exists;
 	}
-
-private:
 	// поля класса
 	String^ name; // название книги
 	String^ author; // автор книги
@@ -54,5 +52,14 @@ private:
 	String^ origin; // происхождение книги
 	int rating; // субъективная оценка книги
 	bool exists; // маркер о наличии/отсутствии книги
+//private:
+//	// поля класса
+//	String^ name; // название книги
+//	String^ author; // автор книги
+//	String^ publisher; // издательство
+//	String^ libSection; // раздел библиотеки
+//	String^ origin; // происхождение книги
+//	int rating; // субъективная оценка книги
+//	bool exists; // маркер о наличии/отсутствии книги
 };
 

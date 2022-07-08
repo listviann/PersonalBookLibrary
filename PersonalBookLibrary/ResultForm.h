@@ -110,6 +110,7 @@ namespace PersonalBookLibrary {
 			this->searchKey_label->Size = System::Drawing::Size(176, 28);
 			this->searchKey_label->TabIndex = 2;
 			this->searchKey_label->Text = L"Критерий поиска:";
+			this->searchKey_label->Click += gcnew System::EventHandler(this, &ResultForm::searchKey_label_Click);
 			// 
 			// searchKey_comboBox
 			// 
@@ -200,6 +201,8 @@ private: System::Void deleteBook_button_Click(System::Object^ sender, System::Ev
 	ViewModel::bookLibrary->deleteBook(item);
 	database_listBox->DataSource = nullptr;
 	database_listBox->DataSource = ViewModel::bookLibrary->toList();
+}
+private: System::Void searchKey_label_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }

@@ -367,18 +367,18 @@ namespace PersonalBookLibrary {
 		bookExistance_groupBox->Controls->Add(existance_radioButton1);
 		bookExistance_groupBox->Controls->Add(existance_radioButton2);
 
-		bookName_textBox->Text = selectedItem->getName();
-		authorName_textBox->Text = selectedItem->getAuthor();
-		publisher_textBox->Text = selectedItem->getPublisher();
-		libSection_textBox->Text = selectedItem->getLibSection();
-		origin_textBox->Text = selectedItem->getOrigin();
-		rating_textBox->Text = Convert::ToString(selectedItem->getRating());
+		bookName_textBox->Text = selectedItem->name;
+		authorName_textBox->Text = selectedItem->author;
+		publisher_textBox->Text = selectedItem->publisher;
+		libSection_textBox->Text = selectedItem->libSection;
+		origin_textBox->Text = selectedItem->origin;
+		rating_textBox->Text = Convert::ToString(selectedItem->rating);
 		
-		if (selectedItem->checkExistance() == true)
+		if (selectedItem->exists == true)
 		{
 			existance_radioButton1->Checked = true;
 		}
-		else if (selectedItem->checkExistance() == false)
+		else if (selectedItem->exists == false)
 		{
 			existance_radioButton2->Checked = true;
 		}
@@ -414,7 +414,7 @@ private: System::Void saveInDb_button_Click(System::Object^ sender, System::Even
 	selectedBook->exists = bookExistance;
 
 	//ViewModel::bookLibrary->editBook(selectedItem, bookName, authorName, publisherName, librarySection, bookOrigin, bookRating, bookExistance);
-	System::Diagnostics::Debug::WriteLine("EDITED NAME: " + selectedBook->getName());
+	System::Diagnostics::Debug::WriteLine("EDITED NAME: " + selectedBook->name);
 	this->Close();
 }
 private: System::Void clearFields_button_Click(System::Object^ sender, System::EventArgs^ e) {

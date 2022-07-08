@@ -12,17 +12,6 @@ void BookLibrary::deleteBook(Book^ _book)
 	books->remove(_book);
 }
 
-//void BookLibrary::editBook(Book^ _book, String^ _name, String^ _author, String^ _publisher, String^ _libSection, String^ _origin, int _rating, bool _exist)
-//{
-//	_book->setName(_name);
-//	_book->setAuthor(_author);
-//	_book->setPublisher(_publisher);
-//	_book->setLibSection(_libSection);
-//	_book->setOrigin(_origin);
-//	_book->setRating(_rating);
-//	_book->setExistanceMarker(_exist);
-//}
-
 Book^ BookLibrary::find(String^ parameter)
 {
 	/*if (parameter == "name")

@@ -13,10 +13,6 @@ public:
 
 	void deleteBook(Book^ _book); // удаление книги из связного списка
 
-	//void editBook(Book^ _book, String^ _name, String^ _author,
-	//	String^ _publisher, String^ _libSection,
-	//	String^ _origin, int _rating, bool _exist); // редактирование данных книги
-
 	Book^ find(String^ parameter); // поиск в базе данных по заданному параметру
 
 	void addListToDb(); // добавление списка с элементами в базу данных

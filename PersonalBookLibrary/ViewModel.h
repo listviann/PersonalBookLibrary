@@ -10,5 +10,6 @@ ref class ViewModel
 {
 public:
 	static BookLibrary^ bookLibrary = gcnew BookLibrary();
+	static String^ filename = ".\\libraryData.json";
 };
 

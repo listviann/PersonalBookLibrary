@@ -8,6 +8,8 @@
 
 namespace PersonalBookLibrary {
 
+	using namespace System::Text::Json;
+	using namespace System::Text::Json::Serialization;
 	using namespace System;
 	using namespace System::ComponentModel;
 	using namespace System::Collections;
@@ -15,6 +17,10 @@ namespace PersonalBookLibrary {
 	using namespace System::Data;
 	using namespace System::Drawing;
 	using namespace System::Diagnostics;
+	using namespace System::Text;
+	using namespace System::Threading::Tasks;
+	using namespace System::IO;
+	using namespace Newtonsoft::Json;
 
 	/// <summary>
 	/// Summary for MainForm
@@ -441,6 +447,10 @@ namespace PersonalBookLibrary {
 
 			// добавление объекта класса Book в объект класса BookLibrary
 			ViewModel::bookLibrary->addBook(book);
+
+			// добавление в файл
+			String^ filename = ".\\libraryData.json";
+			File::WriteAllText(filename, JsonConvert::SerializeObject(ViewModel::bookLibrary->toList(), Formatting::Indented));
 		}
 		private: System::Void bookName_textBox_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 		}
@@ -448,12 +458,12 @@ namespace PersonalBookLibrary {
 		// Обработчик для кнопки очистки текстовых полей
 		// При нажатии на данную кнопку все текстовые поля очищаются
 		private: System::Void clearFields_button_Click(System::Object^ sender, System::EventArgs^ e) {
-			bookName_textBox->Text = " ";
-			authorName_textBox->Text = " ";
-			publisher_textBox->Text = " ";
-			libSection_textBox->Text = " ";
-			origin_textBox->Text = " ";
-			rating_textBox->Text = " ";
+			bookName_textBox->Text = "";
+			authorName_textBox->Text = "";
+			publisher_textBox->Text = "";
+			libSection_textBox->Text = "";
+			origin_textBox->Text = "";
+			rating_textBox->Text = "";
 
 			//ViewModel::bookLibrary->printLib();
 		}

@@ -3,6 +3,7 @@
 #include "SinglyLinkedList.h"
 
 using namespace System;
+using namespace System::Collections::Generic;
 
 ref class BookLibrary
 {
@@ -23,5 +24,5 @@ public:
 
 	System::Collections::Generic::List<Book^>^ toList();
 
-	SinglyLinkedList<Book^>^ books = gcnew SinglyLinkedList<Book^>; // односвязный список, содержащий объекты книги	
+	SinglyLinkedList<Book^>^ books = gcnew SinglyLinkedList<Book^>; // односвязный список, содержащий объекты книги
 };

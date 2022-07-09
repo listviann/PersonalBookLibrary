@@ -9,6 +9,8 @@ namespace PersonalBookLibrary {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace Newtonsoft::Json;
+	using namespace System::IO;
 
 	/// <summary>
 	/// Summary for EditForm
@@ -419,6 +421,10 @@ private: System::Void saveInDb_button_Click(System::Object^ sender, System::Even
 	selectedBook->origin = bookOrigin;
 	selectedBook->rating = bookRating;
 	selectedBook->exists = bookExistance;
+
+	String^ filename = ".\\libraryData.json";
+
+	File::WriteAllText(filename, JsonConvert::SerializeObject(ViewModel::bookLibrary->toList(), Formatting::Indented));
 
 	//ViewModel::bookLibrary->editBook(selectedItem, bookName, authorName, publisherName, librarySection, bookOrigin, bookRating, bookExistance);
 	// вывод информации в консоль Visual Studio (для отладки и дебага)

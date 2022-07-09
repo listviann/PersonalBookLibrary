@@ -10,6 +10,8 @@ namespace PersonalBookLibrary {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace System::IO;
+	using namespace Newtonsoft::Json;
 
 	/// <summary>
 	/// Summary for ResultForm
@@ -212,6 +214,9 @@ private: System::Void deleteBook_button_Click(System::Object^ sender, System::Ev
 	// обновление компонента listBox
 	database_listBox->DataSource = nullptr;
 	database_listBox->DataSource = ViewModel::bookLibrary->toList();
+
+	String^ filename = ".\\libraryData.json";
+	File::WriteAllText(filename, JsonConvert::SerializeObject(ViewModel::bookLibrary->toList(), Formatting::Indented));
 }
 private: System::Void searchKey_label_Click(System::Object^ sender, System::EventArgs^ e) {
 }

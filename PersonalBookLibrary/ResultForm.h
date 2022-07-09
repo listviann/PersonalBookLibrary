@@ -271,6 +271,11 @@ private: System::Void search_button_Click(System::Object^ sender, System::EventA
 		database_listBox->DataSource = nullptr;
 		database_listBox->DataSource = findByRating(Convert::ToInt32(searchBar_textBox->Text));
 	}
+	else if (searchKey_comboBox->SelectedItem == "Наличие")
+	{
+		database_listBox->DataSource = nullptr;
+		database_listBox->DataSource = findByExistance(searchBar_textBox->Text);
+	}
 }
 
 private: List<Book^>^ findByName(String^ searchName)
@@ -360,5 +365,23 @@ private: List<Book^>^ findByRating(int searchName)
 	return foundItems;
 }
 
+private: List<Book^>^ findByExistance(String^ searchName)
+{
+	List<Book^>^ foundItems = gcnew List<Book^>();
+
+	for (int i = 0; i < ViewModel::bookLibrary->toList()->Count; i++)
+	{
+		if (searchName == "да" && ViewModel::bookLibrary->toList()[i]->exists == true)
+		{
+			foundItems->Add(ViewModel::bookLibrary->toList()[i]);
+		}
+		else if (searchName == "нет" && ViewModel::bookLibrary->toList()[i]->exists == false)
+		{
+			foundItems->Add(ViewModel::bookLibrary->toList()[i]);
+		}
+	}
+
+	return foundItems;
+}
 };
 }

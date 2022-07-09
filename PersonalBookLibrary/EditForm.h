@@ -389,47 +389,58 @@ namespace PersonalBookLibrary {
 
 // Обработчик кнопки для сохранения изменений в БД
 private: System::Void saveInDb_button_Click(System::Object^ sender, System::EventArgs^ e) {
-	//System::Diagnostics::Debug::WriteLine(selectedItem->checkExistance());
-
 	// получение выбранного в listBox (ResultForm.h) объекта
 	Book^ selectedBook = ViewModel::bookLibrary->toList()[ViewModel::bookLibrary->toList()->IndexOf(selectedItem)];
 
-	// присваивание переменным значений из текстовых полей
-	String^ bookName = bookName_textBox->Text;
-	String^ authorName = authorName_textBox->Text;
-	String^ publisherName = publisher_textBox->Text;
-	String^ librarySection = libSection_textBox->Text;
-	String^ bookOrigin = origin_textBox->Text;
-	int bookRating = Convert::ToInt32(rating_textBox->Text);
-	bool bookExistance;
-
-	// присваивание переменной-маркеру о наличии/отсутствии значения в зависимости от выбранного компонента RadioButton
-	if (existance_radioButton1->Checked)
+	try
 	{
-		bookExistance = true;
+		// присваивание переменным значений из текстовых полей
+		String^ bookName = bookName_textBox->Text;
+		String^ authorName = authorName_textBox->Text;
+		String^ publisherName = publisher_textBox->Text;
+		String^ librarySection = libSection_textBox->Text;
+		String^ bookOrigin = origin_textBox->Text;
+		int bookRating = Convert::ToInt32(rating_textBox->Text);
+		bool bookExistance;
+
+		// присваивание переменной-маркеру о наличии/отсутствии значения в зависимости от выбранного компонента RadioButton
+		if (existance_radioButton1->Checked)
+		{
+			bookExistance = true;
+		}
+		else if (existance_radioButton2->Checked)
+		{
+			bookExistance = false;
+		}
+
+		// валидация
+		if (String::IsNullOrWhiteSpace(bookName)
+			|| String::IsNullOrWhiteSpace(authorName)
+			|| String::IsNullOrWhiteSpace(publisherName)
+			|| String::IsNullOrWhiteSpace(librarySection)
+			|| String::IsNullOrWhiteSpace(bookOrigin)
+			|| bookRating < 1
+			|| bookRating > 5)
+		{
+			MessageBox::Show("Не были введены необходимые данные или неверно задана оценка");
+		}
+		else
+		{
+			// изменение значений свойств выбранного объекта
+			selectedBook->name = bookName;
+			selectedBook->author = authorName;
+			selectedBook->publisher = publisherName;
+			selectedBook->libSection = librarySection;
+			selectedBook->origin = bookOrigin;
+			selectedBook->rating = bookRating;
+			selectedBook->exists = bookExistance;
+			this->Close();
+		}
 	}
-	else if (existance_radioButton2->Checked)
+	catch (Exception^ ex)
 	{
-		bookExistance = false;
+		MessageBox::Show("Указаны некорректные данные");
 	}
-
-	// изменение значений свойств выбранного объекта
-	selectedBook->name = bookName;
-	selectedBook->author = authorName;
-	selectedBook->publisher = publisherName;
-	selectedBook->libSection = librarySection;
-	selectedBook->origin = bookOrigin;
-	selectedBook->rating = bookRating;
-	selectedBook->exists = bookExistance;
-
-	/*String^ filename = ".\\libraryData.json";
-
-	File::WriteAllText(filename, JsonConvert::SerializeObject(ViewModel::bookLibrary->toList(), Formatting::Indented));*/
-
-	//ViewModel::bookLibrary->editBook(selectedItem, bookName, authorName, publisherName, librarySection, bookOrigin, bookRating, bookExistance);
-	// вывод информации в консоль Visual Studio (для отладки и дебага)
-	System::Diagnostics::Debug::WriteLine("EDITED NAME: " + selectedBook->name);
-	this->Close();
 }
 
 // Обработчик кнопки для очистки текстовых полей

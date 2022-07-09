@@ -25,6 +25,14 @@ namespace PersonalBookLibrary {
 			//
 			//TODO: Add the constructor code here
 			//
+
+			searchKey_comboBox->Items->Add("Название");
+			searchKey_comboBox->Items->Add("Автор");
+			searchKey_comboBox->Items->Add("Издательство");
+			searchKey_comboBox->Items->Add("Раздел");
+			searchKey_comboBox->Items->Add("Происхождение");
+			searchKey_comboBox->Items->Add("Оценка");
+			searchKey_comboBox->Items->Add("Наличие");
 		}
 
 	protected:
@@ -121,6 +129,7 @@ namespace PersonalBookLibrary {
 			this->searchKey_comboBox->Name = L"searchKey_comboBox";
 			this->searchKey_comboBox->Size = System::Drawing::Size(160, 24);
 			this->searchKey_comboBox->TabIndex = 3;
+			this->searchKey_comboBox->SelectedIndexChanged += gcnew System::EventHandler(this, &ResultForm::searchKey_comboBox_SelectedIndexChanged);
 			// 
 			// editBook_button
 			// 
@@ -158,6 +167,7 @@ namespace PersonalBookLibrary {
 			this->search_button->TabIndex = 7;
 			this->search_button->Text = L"Найти";
 			this->search_button->UseVisualStyleBackColor = true;
+			this->search_button->Click += gcnew System::EventHandler(this, &ResultForm::search_button_Click);
 			// 
 			// ResultForm
 			// 
@@ -220,5 +230,135 @@ private: System::Void deleteBook_button_Click(System::Object^ sender, System::Ev
 }
 private: System::Void searchKey_label_Click(System::Object^ sender, System::EventArgs^ e) {
 }
+private: System::Void searchKey_comboBox_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void search_button_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	if (searchBar_textBox->Text == "")
+	{
+		database_listBox->DataSource = nullptr;
+		database_listBox->DataSource = ViewModel::bookLibrary->toList();
+	}
+
+	// YANDERE DEV REFERENCE)))))))
+	if (searchKey_comboBox->SelectedItem == "Название")
+	{
+		database_listBox->DataSource = nullptr;
+		database_listBox->DataSource = findByName(searchBar_textBox->Text);
+	}
+	else if (searchKey_comboBox->SelectedItem == "Автор")
+	{
+		database_listBox->DataSource = nullptr;
+		database_listBox->DataSource = findByAuthor(searchBar_textBox->Text);
+	}
+	else if (searchKey_comboBox->SelectedItem == "Издательство")
+	{
+		database_listBox->DataSource = nullptr;
+		database_listBox->DataSource = findByPublisher(searchBar_textBox->Text);
+	}
+	else if (searchKey_comboBox->SelectedItem == "Раздел")
+	{
+		database_listBox->DataSource = nullptr;
+		database_listBox->DataSource = findByLibSection(searchBar_textBox->Text);
+	}
+	else if (searchKey_comboBox->SelectedItem == "Происхождение")
+	{
+		database_listBox->DataSource = nullptr;
+		database_listBox->DataSource = findByOrigin(searchBar_textBox->Text);
+	}
+	else if (searchKey_comboBox->SelectedItem == "Оценка")
+	{
+		database_listBox->DataSource = nullptr;
+		database_listBox->DataSource = findByRating(Convert::ToInt32(searchBar_textBox->Text));
+	}
+}
+
+private: List<Book^>^ findByName(String^ searchName)
+{
+	List<Book^>^ foundItems = gcnew List<Book^>();
+
+	for (int i = 0; i < ViewModel::bookLibrary->toList()->Count; i++)
+	{
+		if (ViewModel::bookLibrary->toList()[i]->name == searchName)
+		{
+			foundItems->Add(ViewModel::bookLibrary->toList()[i]);
+		}
+	}
+
+	return foundItems;
+}
+private: List<Book^>^ findByAuthor(String^ searchName)
+{
+	List<Book^>^ foundItems = gcnew List<Book^>();
+
+	for (int i = 0; i < ViewModel::bookLibrary->toList()->Count; i++)
+	{
+		if (ViewModel::bookLibrary->toList()[i]->author == searchName)
+		{
+			foundItems->Add(ViewModel::bookLibrary->toList()[i]);
+		}
+	}
+
+	return foundItems;
+}
+private: List<Book^>^ findByPublisher(String^ searchName)
+{
+	List<Book^>^ foundItems = gcnew List<Book^>();
+
+	for (int i = 0; i < ViewModel::bookLibrary->toList()->Count; i++)
+	{
+		if (ViewModel::bookLibrary->toList()[i]->publisher == searchName)
+		{
+			foundItems->Add(ViewModel::bookLibrary->toList()[i]);
+		}
+	}
+
+	return foundItems;
+}
+private: List<Book^>^ findByLibSection(String^ searchName)
+{
+	List<Book^>^ foundItems = gcnew List<Book^>();
+
+	for (int i = 0; i < ViewModel::bookLibrary->toList()->Count; i++)
+	{
+		if (ViewModel::bookLibrary->toList()[i]->libSection == searchName)
+		{
+			foundItems->Add(ViewModel::bookLibrary->toList()[i]);
+		}
+	}
+
+	return foundItems;
+}
+
+private: List<Book^>^ findByOrigin(String^ searchName)
+{
+	List<Book^>^ foundItems = gcnew List<Book^>();
+
+	for (int i = 0; i < ViewModel::bookLibrary->toList()->Count; i++)
+	{
+		if (ViewModel::bookLibrary->toList()[i]->origin == searchName)
+		{
+			foundItems->Add(ViewModel::bookLibrary->toList()[i]);
+		}
+	}
+
+	return foundItems;
+}
+
+private: List<Book^>^ findByRating(int searchName)
+{
+	List<Book^>^ foundItems = gcnew List<Book^>();
+
+	for (int i = 0; i < ViewModel::bookLibrary->toList()->Count; i++)
+	{
+		if (ViewModel::bookLibrary->toList()[i]->rating == searchName)
+		{
+			foundItems->Add(ViewModel::bookLibrary->toList()[i]);
+		}
+	}
+
+	return foundItems;
+}
+
 };
 }

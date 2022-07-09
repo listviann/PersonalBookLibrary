@@ -95,8 +95,10 @@ namespace PersonalBookLibrary {
 	private: System::Windows::Forms::GroupBox^ bookExistance_groupBox;
 	private: System::Windows::Forms::TextBox^ rating_textBox;
 	private: System::Windows::Forms::ToolStripMenuItem^ ôàéëToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^ ñîõğàíèòüÊàêToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^ îòêğûòüToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ saveAs_ToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ open_ToolStripMenuItem;
+
+
 	private: System::Windows::Forms::SaveFileDialog^ saveFileDialog1;
 	private: System::Windows::Forms::OpenFileDialog^ openFileDialog1;
 
@@ -136,8 +138,8 @@ namespace PersonalBookLibrary {
 			this->clearFields_button = (gcnew System::Windows::Forms::Button());
 			this->MainForm_menuStrip = (gcnew System::Windows::Forms::MenuStrip());
 			this->ôàéëToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->ñîõğàíèòüÊàêToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->îòêğûòüToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->saveAs_ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->open_ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->ResultForm_ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->HelpForm_ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->bookExistance_groupBox = (gcnew System::Windows::Forms::GroupBox());
@@ -347,26 +349,27 @@ namespace PersonalBookLibrary {
 			// ôàéëToolStripMenuItem
 			// 
 			this->ôàéëToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
-				this->ñîõğàíèòüÊàêToolStripMenuItem,
-					this->îòêğûòüToolStripMenuItem
+				this->saveAs_ToolStripMenuItem,
+					this->open_ToolStripMenuItem
 			});
 			this->ôàéëToolStripMenuItem->Name = L"ôàéëToolStripMenuItem";
 			this->ôàéëToolStripMenuItem->Size = System::Drawing::Size(59, 24);
 			this->ôàéëToolStripMenuItem->Text = L"Ôàéë";
+			this->ôàéëToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::ôàéëToolStripMenuItem_Click);
 			// 
-			// ñîõğàíèòüÊàêToolStripMenuItem
+			// saveAs_ToolStripMenuItem
 			// 
-			this->ñîõğàíèòüÊàêToolStripMenuItem->Name = L"ñîõğàíèòüÊàêToolStripMenuItem";
-			this->ñîõğàíèòüÊàêToolStripMenuItem->Size = System::Drawing::Size(224, 26);
-			this->ñîõğàíèòüÊàêToolStripMenuItem->Text = L"Ñîõğàíèòü êàê";
-			this->ñîõğàíèòüÊàêToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::ñîõğàíèòüÊàêToolStripMenuItem_Click);
+			this->saveAs_ToolStripMenuItem->Name = L"saveAs_ToolStripMenuItem";
+			this->saveAs_ToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->saveAs_ToolStripMenuItem->Text = L"Ñîõğàíèòü êàê";
+			this->saveAs_ToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::saveAs_ToolStripMenuItem_Click);
 			// 
-			// îòêğûòüToolStripMenuItem
+			// open_ToolStripMenuItem
 			// 
-			this->îòêğûòüToolStripMenuItem->Name = L"îòêğûòüToolStripMenuItem";
-			this->îòêğûòüToolStripMenuItem->Size = System::Drawing::Size(224, 26);
-			this->îòêğûòüToolStripMenuItem->Text = L"Îòêğûòü";
-			this->îòêğûòüToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::îòêğûòüToolStripMenuItem_Click);
+			this->open_ToolStripMenuItem->Name = L"open_ToolStripMenuItem";
+			this->open_ToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->open_ToolStripMenuItem->Text = L"Îòêğûòü";
+			this->open_ToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::open_ToolStripMenuItem_Click);
 			// 
 			// ResultForm_ToolStripMenuItem
 			// 
@@ -508,7 +511,7 @@ namespace PersonalBookLibrary {
 
 		//ViewModel::bookLibrary->printLib();
 	}
-	private: System::Void ñîõğàíèòüÊàêToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void saveAs_ToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 		if (saveFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::Cancel)
 		{
 			return;
@@ -518,7 +521,8 @@ namespace PersonalBookLibrary {
 		File::WriteAllText(filename, JsonConvert::SerializeObject(ViewModel::bookLibrary->toList(), Formatting::Indented));
 		MessageBox::Show("Ôàéë ñîõğàíåí");
 	}
-	private: System::Void îòêğûòüToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	private: System::Void open_ToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 		if (openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::Cancel)
 		{
 			return;
@@ -537,5 +541,7 @@ namespace PersonalBookLibrary {
 
 		MessageBox::Show("Ôàéë îòêğûò");
 	}
-	};
+	private: System::Void ôàéëToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+};
 }

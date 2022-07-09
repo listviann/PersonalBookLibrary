@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Как перестать беспокоиться и начать жить",
+    "author": "Дейл Карнеги",
+    "publisher": "Фиалка",
+    "libSection": "Образование",
+    "origin": "США",
+    "rating": 5,
+    "exists": true
+  },
+  {
+    "name": "О дивный новый мир",
+    "author": "Олдос Хаксли",
+    "publisher": "Ромашка",
+    "libSection": "Антиутопия",
+    "origin": "Великобритания",
+    "rating": 4,
+    "exists": false
+  },
+  {
+    "name": "1984",
+    "author": "Джордж Оруэлл",
+    "publisher": "Фиалка",
+    "libSection": "Антиутопия",
+    "origin": "Великобритания",
+    "rating": 5,
+    "exists": true
+  },
+  {
+    "name": "Престиж",
+    "author": "Кристофер Прист",
+    "publisher": "Ромашка",
+    "libSection": "Фантастика",
+    "origin": "Великобритания",
+    "rating": 4,
+    "exists": false
+  }
+]

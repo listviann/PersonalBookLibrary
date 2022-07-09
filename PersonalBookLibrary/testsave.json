@@ -7,5 +7,14 @@
     "origin": "test",
     "rating": 1,
     "exists": true
+  },
+  {
+    "name": "asd",
+    "author": "asd",
+    "publisher": "asd",
+    "libSection": "asd",
+    "origin": "asd",
+    "rating": 22,
+    "exists": true
   }
 ]

@@ -547,16 +547,23 @@ namespace PersonalBookLibrary {
 
 		String^ filename = openFileDialog1->FileName;
 
-		List<Book^>^ books = ViewModel::bookLibrary->toList();
-		ViewModel::bookLibrary->deleteAll();
-		books = JsonConvert::DeserializeObject<List<Book^>^>(File::ReadAllText(filename));
-
-		for (int i = 0; i < books->Count; i++)
+		try
 		{
-			ViewModel::bookLibrary->addBook(books[i]);
-		}
+			List<Book^>^ books = ViewModel::bookLibrary->toList();
+			ViewModel::bookLibrary->deleteAll();
+			books = JsonConvert::DeserializeObject<List<Book^>^>(File::ReadAllText(filename));
 
-		MessageBox::Show("Файл открыт");
+			for (int i = 0; i < books->Count; i++)
+			{
+				ViewModel::bookLibrary->addBook(books[i]);
+			}
+
+			MessageBox::Show("Файл открыт");
+		}
+		catch (Exception^ ex)
+		{
+			MessageBox::Show("Файл поврежден или имеет некорректные данные");
+		}
 	}
 	private: System::Void файлToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	}

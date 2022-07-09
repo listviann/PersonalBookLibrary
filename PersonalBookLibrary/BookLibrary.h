@@ -20,6 +20,8 @@ public:
 
 	void printLib();
 
+	void deleteAll();
+
 	SinglyLinkedList<Book^>^ getListFromDb(String^ filepath); // получение списка с элементами из базы данных
 
 	System::Collections::Generic::List<Book^>^ toList();

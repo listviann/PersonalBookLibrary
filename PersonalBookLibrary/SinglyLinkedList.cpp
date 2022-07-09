@@ -101,6 +101,14 @@ inline bool SinglyLinkedList<T>::contains(T data)
 }
 
 generic<typename T>
+void SinglyLinkedList<T>::clear()
+{
+	head = nullptr;
+	tail = nullptr;
+	count = 0;
+}
+
+generic<typename T>
 void SinglyLinkedList<T>::printListDebug()
 {
 	Node<T>^ current = head;

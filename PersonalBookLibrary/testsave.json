@@ -1,0 +1,11 @@
+[
+  {
+    "name": "test",
+    "author": "test",
+    "publisher": "test",
+    "libSection": "test",
+    "origin": "test",
+    "rating": 1,
+    "exists": true
+  }
+]

@@ -38,6 +38,11 @@ System::Collections::Generic::List<Book^>^ BookLibrary::toList()
 	return books->toBuiltInList();
 }
 
+void BookLibrary::deleteAll()
+{
+	books->clear();
+}
+
 // ENCAPSULATES LINKED LIST DEBUG
 void BookLibrary::printLib()
 {

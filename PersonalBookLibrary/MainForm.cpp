@@ -3,6 +3,7 @@
 
 using namespace PersonalBookLibrary;
 
+[STAThread]
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 {
 	Application::EnableVisualStyles();

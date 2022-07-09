@@ -225,8 +225,8 @@ private: System::Void deleteBook_button_Click(System::Object^ sender, System::Ev
 	database_listBox->DataSource = nullptr;
 	database_listBox->DataSource = ViewModel::bookLibrary->toList();
 
-	String^ filename = ".\\libraryData.json";
-	File::WriteAllText(filename, JsonConvert::SerializeObject(ViewModel::bookLibrary->toList(), Formatting::Indented));
+	/*String^ filename = ".\\libraryData.json";
+	File::WriteAllText(filename, JsonConvert::SerializeObject(ViewModel::bookLibrary->toList(), Formatting::Indented));*/
 }
 private: System::Void searchKey_label_Click(System::Object^ sender, System::EventArgs^ e) {
 }

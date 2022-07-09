@@ -422,9 +422,9 @@ private: System::Void saveInDb_button_Click(System::Object^ sender, System::Even
 	selectedBook->rating = bookRating;
 	selectedBook->exists = bookExistance;
 
-	String^ filename = ".\\libraryData.json";
+	/*String^ filename = ".\\libraryData.json";
 
-	File::WriteAllText(filename, JsonConvert::SerializeObject(ViewModel::bookLibrary->toList(), Formatting::Indented));
+	File::WriteAllText(filename, JsonConvert::SerializeObject(ViewModel::bookLibrary->toList(), Formatting::Indented));*/
 
 	//ViewModel::bookLibrary->editBook(selectedItem, bookName, authorName, publisherName, librarySection, bookOrigin, bookRating, bookExistance);
 	// вывод информации в консоль Visual Studio (для отладки и дебага)

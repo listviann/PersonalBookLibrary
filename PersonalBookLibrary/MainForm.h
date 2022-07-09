@@ -34,6 +34,9 @@ namespace PersonalBookLibrary {
 			//
 			//TODO: Add the constructor code here
 			//
+
+			saveFileDialog1->Filter = "JSON file(*.json)|*.json|Text file(*.txt)|*.txt";
+			openFileDialog1->Filter = "JSON file(*.json)|*.json|Text file(*.txt)|*.txt";
 		}
 
 
@@ -91,6 +94,11 @@ namespace PersonalBookLibrary {
 	private: System::Windows::Forms::ToolStripMenuItem^ HelpForm_ToolStripMenuItem;
 	private: System::Windows::Forms::GroupBox^ bookExistance_groupBox;
 	private: System::Windows::Forms::TextBox^ rating_textBox;
+	private: System::Windows::Forms::ToolStripMenuItem^ файлToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ сохранитьКакToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ открытьToolStripMenuItem;
+	private: System::Windows::Forms::SaveFileDialog^ saveFileDialog1;
+	private: System::Windows::Forms::OpenFileDialog^ openFileDialog1;
 
 
 
@@ -127,10 +135,15 @@ namespace PersonalBookLibrary {
 			this->addToDb_button = (gcnew System::Windows::Forms::Button());
 			this->clearFields_button = (gcnew System::Windows::Forms::Button());
 			this->MainForm_menuStrip = (gcnew System::Windows::Forms::MenuStrip());
+			this->файлToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->сохранитьКакToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->открытьToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->ResultForm_ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->HelpForm_ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->bookExistance_groupBox = (gcnew System::Windows::Forms::GroupBox());
 			this->rating_textBox = (gcnew System::Windows::Forms::TextBox());
+			this->saveFileDialog1 = (gcnew System::Windows::Forms::SaveFileDialog());
+			this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->MainForm_menuStrip->SuspendLayout();
 			this->bookExistance_groupBox->SuspendLayout();
 			this->SuspendLayout();
@@ -322,14 +335,38 @@ namespace PersonalBookLibrary {
 			// MainForm_menuStrip
 			// 
 			this->MainForm_menuStrip->ImageScalingSize = System::Drawing::Size(20, 20);
-			this->MainForm_menuStrip->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
-				this->ResultForm_ToolStripMenuItem,
-					this->HelpForm_ToolStripMenuItem
+			this->MainForm_menuStrip->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
+				this->файлToolStripMenuItem,
+					this->ResultForm_ToolStripMenuItem, this->HelpForm_ToolStripMenuItem
 			});
 			this->MainForm_menuStrip->Location = System::Drawing::Point(0, 0);
 			this->MainForm_menuStrip->Name = L"MainForm_menuStrip";
 			this->MainForm_menuStrip->Size = System::Drawing::Size(692, 28);
 			this->MainForm_menuStrip->TabIndex = 17;
+			// 
+			// файлToolStripMenuItem
+			// 
+			this->файлToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+				this->сохранитьКакToolStripMenuItem,
+					this->открытьToolStripMenuItem
+			});
+			this->файлToolStripMenuItem->Name = L"файлToolStripMenuItem";
+			this->файлToolStripMenuItem->Size = System::Drawing::Size(59, 24);
+			this->файлToolStripMenuItem->Text = L"Файл";
+			// 
+			// сохранитьКакToolStripMenuItem
+			// 
+			this->сохранитьКакToolStripMenuItem->Name = L"сохранитьКакToolStripMenuItem";
+			this->сохранитьКакToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->сохранитьКакToolStripMenuItem->Text = L"Сохранить как";
+			this->сохранитьКакToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::сохранитьКакToolStripMenuItem_Click);
+			// 
+			// открытьToolStripMenuItem
+			// 
+			this->открытьToolStripMenuItem->Name = L"открытьToolStripMenuItem";
+			this->открытьToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->открытьToolStripMenuItem->Text = L"Открыть";
+			this->открытьToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::открытьToolStripMenuItem_Click);
 			// 
 			// ResultForm_ToolStripMenuItem
 			// 
@@ -366,6 +403,10 @@ namespace PersonalBookLibrary {
 			this->rating_textBox->Name = L"rating_textBox";
 			this->rating_textBox->Size = System::Drawing::Size(390, 22);
 			this->rating_textBox->TabIndex = 19;
+			// 
+			// openFileDialog1
+			// 
+			this->openFileDialog1->FileName = L"openFileDialog1";
 			// 
 			// MainForm
 			// 
@@ -405,67 +446,96 @@ namespace PersonalBookLibrary {
 
 		}
 #pragma endregion
-		private: System::Void ResultForm_ToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-			ResultForm^ resultForm = gcnew ResultForm;
-			resultForm->Show();
-		}
-		private: System::Void HelpForm_ToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-			HelpForm^ helpForm = gcnew HelpForm;
-			helpForm->Show();
-			/*GreetingForm^ greetingForm = gcnew GreetingForm();
-			greetingForm->Show();*/
-		}
-		private: System::Void MainForm_Load(System::Object^ sender, System::EventArgs^ e) {
-			bookExistance_groupBox->Controls->Add(existance_radioButton1);
-			bookExistance_groupBox->Controls->Add(existance_radioButton2);
-		}
-		// Обработчик для кнопки добавления
-		// В данном обработчике реализована логика добавления объекта в БД
-		private: System::Void addToDb_button_Click(System::Object^ sender, System::EventArgs^ e) {
-			// присваивание переменным значений из текстовых полей
-			String^ bookName = bookName_textBox->Text;
-			String^ authorName = authorName_textBox->Text;
-			String^ publisherName = publisher_textBox->Text;
-			String^ librarySection = libSection_textBox->Text;
-			String^ bookOrigin = origin_textBox->Text;
-			int bookRating = Convert::ToInt32(rating_textBox->Text);
-			bool bookExistance;
+	private: System::Void ResultForm_ToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		ResultForm^ resultForm = gcnew ResultForm;
+		resultForm->Show();
+	}
+	private: System::Void HelpForm_ToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		HelpForm^ helpForm = gcnew HelpForm;
+		helpForm->Show();
+		/*GreetingForm^ greetingForm = gcnew GreetingForm();
+		greetingForm->Show();*/
+	}
+	private: System::Void MainForm_Load(System::Object^ sender, System::EventArgs^ e) {
+		bookExistance_groupBox->Controls->Add(existance_radioButton1);
+		bookExistance_groupBox->Controls->Add(existance_radioButton2);
+	}
+		   // Обработчик для кнопки добавления
+		   // В данном обработчике реализована логика добавления объекта в БД
+	private: System::Void addToDb_button_Click(System::Object^ sender, System::EventArgs^ e) {
+		// присваивание переменным значений из текстовых полей
+		String^ bookName = bookName_textBox->Text;
+		String^ authorName = authorName_textBox->Text;
+		String^ publisherName = publisher_textBox->Text;
+		String^ librarySection = libSection_textBox->Text;
+		String^ bookOrigin = origin_textBox->Text;
+		int bookRating = Convert::ToInt32(rating_textBox->Text);
+		bool bookExistance;
 
-			// присваивание переменной-маркеру о наличии/отсутствии значения в зависимости от выбранного компонента RadioButton
-			if (existance_radioButton1->Checked)
-			{
-				bookExistance = true;
-			}
-			else if (existance_radioButton2->Checked)
-			{
-				bookExistance = false;
-			}
-
-			// создание объекта класса Book
-			Book^ book = gcnew Book(bookName, authorName, publisherName,
-				librarySection, bookOrigin, bookRating, bookExistance);
-
-			// добавление объекта класса Book в объект класса BookLibrary
-			ViewModel::bookLibrary->addBook(book);
-
-			// добавление в файл
-			String^ filename = ".\\libraryData.json";
-			File::WriteAllText(filename, JsonConvert::SerializeObject(ViewModel::bookLibrary->toList(), Formatting::Indented));
+		// присваивание переменной-маркеру о наличии/отсутствии значения в зависимости от выбранного компонента RadioButton
+		if (existance_radioButton1->Checked)
+		{
+			bookExistance = true;
 		}
-		private: System::Void bookName_textBox_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+		else if (existance_radioButton2->Checked)
+		{
+			bookExistance = false;
 		}
 
-		// Обработчик для кнопки очистки текстовых полей
-		// При нажатии на данную кнопку все текстовые поля очищаются
-		private: System::Void clearFields_button_Click(System::Object^ sender, System::EventArgs^ e) {
-			bookName_textBox->Text = "";
-			authorName_textBox->Text = "";
-			publisher_textBox->Text = "";
-			libSection_textBox->Text = "";
-			origin_textBox->Text = "";
-			rating_textBox->Text = "";
+		// создание объекта класса Book
+		Book^ book = gcnew Book(bookName, authorName, publisherName,
+			librarySection, bookOrigin, bookRating, bookExistance);
 
-			//ViewModel::bookLibrary->printLib();
+		// добавление объекта класса Book в объект класса BookLibrary
+		ViewModel::bookLibrary->addBook(book);
+
+		// добавление в файл
+		/*String^ filename = ".\\libraryData.json";
+		File::WriteAllText(filename, JsonConvert::SerializeObject(ViewModel::bookLibrary->toList(), Formatting::Indented));*/
+	}
+	private: System::Void bookName_textBox_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+	}
+
+		   // Обработчик для кнопки очистки текстовых полей
+		   // При нажатии на данную кнопку все текстовые поля очищаются
+	private: System::Void clearFields_button_Click(System::Object^ sender, System::EventArgs^ e) {
+		bookName_textBox->Text = "";
+		authorName_textBox->Text = "";
+		publisher_textBox->Text = "";
+		libSection_textBox->Text = "";
+		origin_textBox->Text = "";
+		rating_textBox->Text = "";
+
+		//ViewModel::bookLibrary->printLib();
+	}
+	private: System::Void сохранитьКакToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		if (saveFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::Cancel)
+		{
+			return;
 		}
+
+		String^ filename = saveFileDialog1->FileName;
+		File::WriteAllText(filename, JsonConvert::SerializeObject(ViewModel::bookLibrary->toList(), Formatting::Indented));
+		MessageBox::Show("Файл сохранен");
+	}
+	private: System::Void открытьToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		if (openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::Cancel)
+		{
+			return;
+		}
+
+		String^ filename = openFileDialog1->FileName;
+
+		List<Book^>^ books = ViewModel::bookLibrary->toList();
+		ViewModel::bookLibrary->deleteAll();
+		books = JsonConvert::DeserializeObject<List<Book^>^>(File::ReadAllText(filename));
+
+		for (int i = 0; i < books->Count; i++)
+		{
+			ViewModel::bookLibrary->addBook(books[i]);
+		}
+
+		MessageBox::Show("Файл открыт");
+	}
 	};
 }

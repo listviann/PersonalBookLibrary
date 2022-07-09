@@ -15,6 +15,7 @@ public:
 	int getSize(); // получение размера списка
 	void printList(); // печать списка (метод для теста)
 	bool contains(T data);
+	void clear();
 
 	// TO DEBUG
 	void printListDebug();

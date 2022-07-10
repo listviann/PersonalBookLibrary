@@ -18,13 +18,13 @@ public:
 	// переопределение метода System::ToString() для отображения данных объекта
 	virtual String^ ToString() override
 	{
-		return "Book name: " + this->name
-			+ "\nAuthor name: " + this->author
-			+ "\nPublisher: " + this->publisher
-			+ "\nLibrary section: " + this->libSection
-			+ "\nOrigin: " + this->origin
-			+ "\nRating: " + this->rating
-			+ "\nExistance: " + this->exists;
+		return "Название: " + this->name
+			+ " Автор: " + this->author
+			+ " Издательство: " + this->publisher
+			+ " Раздел библиотеки: " + this->libSection
+			+ " Происхождение: " + this->origin
+			+ " Оценка: " + this->rating
+			+ " Наличие: " + this->exists;
 	}
 	// поля класса
 	String^ name; // название книги

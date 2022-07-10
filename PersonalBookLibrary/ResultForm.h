@@ -95,11 +95,14 @@ namespace PersonalBookLibrary {
 			// 
 			// database_listBox
 			// 
+			this->database_listBox->Font = (gcnew System::Drawing::Font(L"Segoe UI", 10.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
 			this->database_listBox->FormattingEnabled = true;
-			this->database_listBox->ItemHeight = 16;
+			this->database_listBox->HorizontalScrollbar = true;
+			this->database_listBox->ItemHeight = 25;
 			this->database_listBox->Location = System::Drawing::Point(12, 85);
 			this->database_listBox->Name = L"database_listBox";
-			this->database_listBox->Size = System::Drawing::Size(443, 308);
+			this->database_listBox->Size = System::Drawing::Size(443, 304);
 			this->database_listBox->TabIndex = 0;
 			this->database_listBox->SelectedIndexChanged += gcnew System::EventHandler(this, &ResultForm::database_listBox_SelectedIndexChanged);
 			// 
@@ -195,14 +198,18 @@ namespace PersonalBookLibrary {
 #pragma endregion
 	// Обработчик кнопки изменения объекта
 	private: System::Void editBook_button_Click(System::Object^ sender, System::EventArgs^ e) {
-		// получение выбранного объекта в listBox
-		Book^ item = (Book^)database_listBox->SelectedItem;
-		// создание и открытие формы для изменения объекта
-		EditForm^ editForm = gcnew EditForm(item);
-		
-		// вывод информации в консоль Visual Studio (для отладки и дебага)
-		Debug::WriteLine(item->name + "CHANGED NAME IN LL");
-		editForm->Show();
+		if (database_listBox->Items->Count != 0)
+		{
+			// получение выбранного объекта в listBox
+			Book^ item = (Book^)database_listBox->SelectedItem;
+			// создание и открытие формы для изменения объекта
+			EditForm^ editForm = gcnew EditForm(item);
+			editForm->Show();
+		}
+		else
+		{
+			MessageBox::Show("Список пуст или не выбран элемент");
+		}
 	}
 private: System::Void database_listBox_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) 
 {
@@ -217,16 +224,20 @@ private: System::Void ResultForm_Load(System::Object^ sender, System::EventArgs^
 
 // Обработчик кнопки удаления объекта
 private: System::Void deleteBook_button_Click(System::Object^ sender, System::EventArgs^ e) {
-	// получение выбранного объекта
-	Book^ item = (Book^)database_listBox->SelectedItem;
-	// удаление выбранного объекта из списка
-	ViewModel::bookLibrary->deleteBook(item);
-	// обновление компонента listBox
-	database_listBox->DataSource = nullptr;
-	database_listBox->DataSource = ViewModel::bookLibrary->toList();
-
-	/*String^ filename = ".\\libraryData.json";
-	File::WriteAllText(filename, JsonConvert::SerializeObject(ViewModel::bookLibrary->toList(), Formatting::Indented));*/
+	if (database_listBox->Items->Count != 0)
+	{
+		// получение выбранного объекта
+		Book^ item = (Book^)database_listBox->SelectedItem;
+		// удаление выбранного объекта из списка
+		ViewModel::bookLibrary->deleteBook(item);
+		// обновление компонента listBox
+		database_listBox->DataSource = nullptr;
+		database_listBox->DataSource = ViewModel::bookLibrary->toList();
+	}
+	else
+	{
+		MessageBox::Show("Список пуст или не выбран элемент");
+	}
 }
 private: System::Void searchKey_label_Click(System::Object^ sender, System::EventArgs^ e) {
 }
@@ -260,8 +271,15 @@ private: System::Void search_button_Click(System::Object^ sender, System::EventA
 
 	else if (searchKey_comboBox->SelectedItem == "Оценка")
 	{
-		database_listBox->DataSource = nullptr;
-		database_listBox->DataSource = ViewModel::bookLibrary->find(Convert::ToInt32(searchBar_textBox->Text));
+		try
+		{
+			database_listBox->DataSource = nullptr;
+			database_listBox->DataSource = ViewModel::bookLibrary->find(Convert::ToInt32(searchBar_textBox->Text));
+		}
+		catch (Exception^ ex)
+		{
+			MessageBox::Show("Указаны некорректные данные в поисковом запросе");
+		}
 	}
 
 	else if (searchKey_comboBox->SelectedItem == "Раздел" || searchKey_comboBox->SelectedItem == "Наличие")

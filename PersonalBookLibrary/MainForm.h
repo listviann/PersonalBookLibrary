@@ -270,9 +270,9 @@ namespace PersonalBookLibrary {
 				static_cast<System::Byte>(204)));
 			this->assessment_label->Location = System::Drawing::Point(160, 331);
 			this->assessment_label->Name = L"assessment_label";
-			this->assessment_label->Size = System::Drawing::Size(140, 28);
+			this->assessment_label->Size = System::Drawing::Size(237, 28);
 			this->assessment_label->TabIndex = 10;
-			this->assessment_label->Text = L"Îöåíêà êíèãè";
+			this->assessment_label->Text = L"Îöåíêà êíèãè (îò 1 äî 5)";
 			// 
 			// existance_radioButton1
 			// 
@@ -343,7 +343,7 @@ namespace PersonalBookLibrary {
 			});
 			this->MainForm_menuStrip->Location = System::Drawing::Point(0, 0);
 			this->MainForm_menuStrip->Name = L"MainForm_menuStrip";
-			this->MainForm_menuStrip->Size = System::Drawing::Size(692, 28);
+			this->MainForm_menuStrip->Size = System::Drawing::Size(692, 30);
 			this->MainForm_menuStrip->TabIndex = 17;
 			// 
 			// ôàéëToolStripMenuItem
@@ -353,35 +353,35 @@ namespace PersonalBookLibrary {
 					this->open_ToolStripMenuItem
 			});
 			this->ôàéëToolStripMenuItem->Name = L"ôàéëToolStripMenuItem";
-			this->ôàéëToolStripMenuItem->Size = System::Drawing::Size(59, 24);
+			this->ôàéëToolStripMenuItem->Size = System::Drawing::Size(59, 26);
 			this->ôàéëToolStripMenuItem->Text = L"Ôàéë";
 			this->ôàéëToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::ôàéëToolStripMenuItem_Click);
 			// 
 			// saveAs_ToolStripMenuItem
 			// 
 			this->saveAs_ToolStripMenuItem->Name = L"saveAs_ToolStripMenuItem";
-			this->saveAs_ToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->saveAs_ToolStripMenuItem->Size = System::Drawing::Size(192, 26);
 			this->saveAs_ToolStripMenuItem->Text = L"Ñîõðàíèòü êàê";
 			this->saveAs_ToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::saveAs_ToolStripMenuItem_Click);
 			// 
 			// open_ToolStripMenuItem
 			// 
 			this->open_ToolStripMenuItem->Name = L"open_ToolStripMenuItem";
-			this->open_ToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->open_ToolStripMenuItem->Size = System::Drawing::Size(192, 26);
 			this->open_ToolStripMenuItem->Text = L"Îòêðûòü";
 			this->open_ToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::open_ToolStripMenuItem_Click);
 			// 
 			// ResultForm_ToolStripMenuItem
 			// 
 			this->ResultForm_ToolStripMenuItem->Name = L"ResultForm_ToolStripMenuItem";
-			this->ResultForm_ToolStripMenuItem->Size = System::Drawing::Size(111, 24);
+			this->ResultForm_ToolStripMenuItem->Size = System::Drawing::Size(111, 26);
 			this->ResultForm_ToolStripMenuItem->Text = L"Áàçà äàííûõ";
 			this->ResultForm_ToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::ResultForm_ToolStripMenuItem_Click);
 			// 
 			// HelpForm_ToolStripMenuItem
 			// 
 			this->HelpForm_ToolStripMenuItem->Name = L"HelpForm_ToolStripMenuItem";
-			this->HelpForm_ToolStripMenuItem->Size = System::Drawing::Size(83, 24);
+			this->HelpForm_ToolStripMenuItem->Size = System::Drawing::Size(83, 26);
 			this->HelpForm_ToolStripMenuItem->Text = L"Ïîìîùü";
 			this->HelpForm_ToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::HelpForm_ToolStripMenuItem_Click);
 			// 

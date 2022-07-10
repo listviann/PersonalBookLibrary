@@ -246,9 +246,9 @@ namespace PersonalBookLibrary {
 				static_cast<System::Byte>(204)));
 			this->assessment_label->Location = System::Drawing::Point(160, 331);
 			this->assessment_label->Name = L"assessment_label";
-			this->assessment_label->Size = System::Drawing::Size(140, 28);
+			this->assessment_label->Size = System::Drawing::Size(237, 28);
 			this->assessment_label->TabIndex = 15;
-			this->assessment_label->Text = L"ќценка книги";
+			this->assessment_label->Text = L"ќценка книги (от 1 до 5)";
 			// 
 			// saveInDb_button
 			// 

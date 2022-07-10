@@ -34,5 +34,14 @@
     "origin": "Великобритания",
     "rating": 4,
     "exists": false
+  },
+  {
+    "name": "Завтрак у Тиффании",
+    "author": "Трумэн Капоте",
+    "publisher": "Издательство Американская Литература",
+    "libSection": "Роман",
+    "origin": "США",
+    "rating": 3,
+    "exists": false
   }
 ]

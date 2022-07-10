@@ -546,7 +546,7 @@ namespace PersonalBookLibrary {
 		}
 
 		String^ filename = openFileDialog1->FileName;
-
+		
 		try
 		{
 			List<Book^>^ books = ViewModel::bookLibrary->toList();

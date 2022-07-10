@@ -553,6 +553,28 @@ namespace PersonalBookLibrary {
 			ViewModel::bookLibrary->deleteAll();
 			books = JsonConvert::DeserializeObject<List<Book^>^>(File::ReadAllText(filename));
 
+			// валидация
+			for (int i = 0; i < books->Count; i++)
+			{
+				if (String::IsNullOrWhiteSpace(books[i]->name)
+					|| String::IsNullOrWhiteSpace(books[i]->author)
+					|| String::IsNullOrWhiteSpace(books[i]->publisher)
+					|| String::IsNullOrWhiteSpace(books[i]->libSection)
+					|| String::IsNullOrWhiteSpace(books[i]->origin)
+					|| books[i]->rating < 1
+					|| books[i]->rating > 5)
+				{
+					MessageBox::Show("Некоторые данные могу отсутствовать или указана некорректная оценка");
+					return;
+				}
+			}
+
+			if (books->Count == 0)
+			{
+				MessageBox::Show("Файл пуст");
+				return;
+			}
+
 			for (int i = 0; i < books->Count; i++)
 			{
 				ViewModel::bookLibrary->addBook(books[i]);

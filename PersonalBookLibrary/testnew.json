@@ -27,12 +27,30 @@
     "exists": false
   },
   {
-    "name": "Завтрак у Тиффании",
-    "author": "Трумэн Капоте",
-    "publisher": "Издательство Американская Литература",
-    "libSection": "Роман",
-    "origin": "США",
-    "rating": 3,
+    "name": "фыв",
+    "author": "фыв",
+    "publisher": "фыв",
+    "libSection": "фыв",
+    "origin": "фыв",
+    "rating": 1,
+    "exists": false
+  },
+  {
+    "name": "фыв",
+    "author": "фыв",
+    "publisher": "фыв",
+    "libSection": "фыв",
+    "origin": "фыв",
+    "rating": 1,
+    "exists": false
+  },
+  {
+    "name": "фыв",
+    "author": "фыв",
+    "publisher": "фыв",
+    "libSection": "фыв",
+    "origin": "фыв",
+    "rating": 1,
     "exists": false
   }
 ]

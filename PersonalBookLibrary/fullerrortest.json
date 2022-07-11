@@ -1,1 +1,11 @@
-[]
+[
+  {
+    "name": "{ \"asdasd\" : \"dsadsasdas\" }",
+    "author": "{ \"asdasd\" : \"dsadsasdas\" }",
+    "publisher": "{ \"asdasd\" : \"dsadsasdas\" }",
+    "libSection": "{ \"asdasd\" : \"dsadsasdas\" }",
+    "origin": "{ \"asdasd\" : \"dsadsasdas\" }",
+    "rating": 2,
+    "exists": false
+  }
+]

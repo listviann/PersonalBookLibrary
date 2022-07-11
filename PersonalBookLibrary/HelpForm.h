@@ -92,7 +92,7 @@ namespace PersonalBookLibrary {
 	private: System::Void HelpForm_Load(System::Object^ sender, System::EventArgs^ e) 
 	{
 		// получение справочной информации из текстового файла
-		String^ infoFromFile = System::IO::File::ReadAllText("D:\\Программирование 2 курс\\Практика\\PersonalBookLibrary\\information.txt");
+		String^ infoFromFile = System::IO::File::ReadAllText(".\\information.txt");
 		// присваивание информации из файла текстовому значению компонента richTextBox
 		helpInfo_richTextBox->Text = infoFromFile;
 	}

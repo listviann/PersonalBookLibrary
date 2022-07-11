@@ -1,6 +1,7 @@
 #pragma once
 #include "EditForm.h"
 #include "ViewModel.h"
+#include "FunctionalViewModel.h"
 
 namespace PersonalBookLibrary {
 
@@ -228,8 +229,10 @@ private: System::Void deleteBook_button_Click(System::Object^ sender, System::Ev
 	{
 		// получение выбранного объекта
 		Book^ item = (Book^)database_listBox->SelectedItem;
+
 		// удаление выбранного объекта из списка
-		ViewModel::bookLibrary->deleteBook(item);
+		FunctionalViewModel::deleteEntity(item);
+
 		// обновление компонента listBox
 		database_listBox->DataSource = nullptr;
 		database_listBox->DataSource = ViewModel::bookLibrary->toList();
@@ -243,6 +246,8 @@ private: System::Void searchKey_label_Click(System::Object^ sender, System::Even
 }
 private: System::Void searchKey_comboBox_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 }
+
+// Обработчик кнопки поиска
 private: System::Void search_button_Click(System::Object^ sender, System::EventArgs^ e) {
 
 	if (searchBar_textBox->Text == "")
@@ -251,8 +256,6 @@ private: System::Void search_button_Click(System::Object^ sender, System::EventA
 		database_listBox->DataSource = ViewModel::bookLibrary->toList();
 	}
 
-	
-	// YANDERE DEV REFERENCE)))))))
 	if (searchKey_comboBox->SelectedItem == "Название")
 	{
 		database_listBox->DataSource = nullptr;

@@ -5,6 +5,7 @@
 #include "Book.h"
 #include "BookLibrary.h"
 #include "ViewModel.h"
+#include "FunctionalViewModel.h"
 
 namespace PersonalBookLibrary {
 
@@ -34,7 +35,6 @@ namespace PersonalBookLibrary {
 			//
 			//TODO: Add the constructor code here
 			//
-
 			saveFileDialog1->Filter = "JSON file(*.json)|*.json|Text file(*.txt)|*.txt";
 			openFileDialog1->Filter = "JSON file(*.json)|*.json|Text file(*.txt)|*.txt";
 		}
@@ -94,13 +94,15 @@ namespace PersonalBookLibrary {
 	private: System::Windows::Forms::ToolStripMenuItem^ HelpForm_ToolStripMenuItem;
 	private: System::Windows::Forms::GroupBox^ bookExistance_groupBox;
 	private: System::Windows::Forms::TextBox^ rating_textBox;
-	private: System::Windows::Forms::ToolStripMenuItem^ файлToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ fileItem_ToolStripMenuItem;
+
 	private: System::Windows::Forms::ToolStripMenuItem^ saveAs_ToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ open_ToolStripMenuItem;
 
 
 	private: System::Windows::Forms::SaveFileDialog^ saveFileDialog1;
 	private: System::Windows::Forms::OpenFileDialog^ openFileDialog1;
+	private: System::Windows::Forms::ToolStripMenuItem^ quit_ToolStripMenuItem;
 
 
 
@@ -137,7 +139,7 @@ namespace PersonalBookLibrary {
 			this->addToDb_button = (gcnew System::Windows::Forms::Button());
 			this->clearFields_button = (gcnew System::Windows::Forms::Button());
 			this->MainForm_menuStrip = (gcnew System::Windows::Forms::MenuStrip());
-			this->файлToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->fileItem_ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->saveAs_ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->open_ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->ResultForm_ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -146,6 +148,7 @@ namespace PersonalBookLibrary {
 			this->rating_textBox = (gcnew System::Windows::Forms::TextBox());
 			this->saveFileDialog1 = (gcnew System::Windows::Forms::SaveFileDialog());
 			this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
+			this->quit_ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->MainForm_menuStrip->SuspendLayout();
 			this->bookExistance_groupBox->SuspendLayout();
 			this->SuspendLayout();
@@ -337,25 +340,25 @@ namespace PersonalBookLibrary {
 			// MainForm_menuStrip
 			// 
 			this->MainForm_menuStrip->ImageScalingSize = System::Drawing::Size(20, 20);
-			this->MainForm_menuStrip->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
-				this->файлToolStripMenuItem,
-					this->ResultForm_ToolStripMenuItem, this->HelpForm_ToolStripMenuItem
+			this->MainForm_menuStrip->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {
+				this->fileItem_ToolStripMenuItem,
+					this->ResultForm_ToolStripMenuItem, this->HelpForm_ToolStripMenuItem, this->quit_ToolStripMenuItem
 			});
 			this->MainForm_menuStrip->Location = System::Drawing::Point(0, 0);
 			this->MainForm_menuStrip->Name = L"MainForm_menuStrip";
-			this->MainForm_menuStrip->Size = System::Drawing::Size(692, 30);
+			this->MainForm_menuStrip->Size = System::Drawing::Size(692, 28);
 			this->MainForm_menuStrip->TabIndex = 17;
 			// 
-			// файлToolStripMenuItem
+			// fileItem_ToolStripMenuItem
 			// 
-			this->файлToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+			this->fileItem_ToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
 				this->saveAs_ToolStripMenuItem,
 					this->open_ToolStripMenuItem
 			});
-			this->файлToolStripMenuItem->Name = L"файлToolStripMenuItem";
-			this->файлToolStripMenuItem->Size = System::Drawing::Size(59, 26);
-			this->файлToolStripMenuItem->Text = L"Файл";
-			this->файлToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::файлToolStripMenuItem_Click);
+			this->fileItem_ToolStripMenuItem->Name = L"fileItem_ToolStripMenuItem";
+			this->fileItem_ToolStripMenuItem->Size = System::Drawing::Size(59, 24);
+			this->fileItem_ToolStripMenuItem->Text = L"Файл";
+			this->fileItem_ToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::файлToolStripMenuItem_Click);
 			// 
 			// saveAs_ToolStripMenuItem
 			// 
@@ -374,14 +377,14 @@ namespace PersonalBookLibrary {
 			// ResultForm_ToolStripMenuItem
 			// 
 			this->ResultForm_ToolStripMenuItem->Name = L"ResultForm_ToolStripMenuItem";
-			this->ResultForm_ToolStripMenuItem->Size = System::Drawing::Size(111, 26);
+			this->ResultForm_ToolStripMenuItem->Size = System::Drawing::Size(111, 24);
 			this->ResultForm_ToolStripMenuItem->Text = L"База данных";
 			this->ResultForm_ToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::ResultForm_ToolStripMenuItem_Click);
 			// 
 			// HelpForm_ToolStripMenuItem
 			// 
 			this->HelpForm_ToolStripMenuItem->Name = L"HelpForm_ToolStripMenuItem";
-			this->HelpForm_ToolStripMenuItem->Size = System::Drawing::Size(83, 26);
+			this->HelpForm_ToolStripMenuItem->Size = System::Drawing::Size(83, 24);
 			this->HelpForm_ToolStripMenuItem->Text = L"Помощь";
 			this->HelpForm_ToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::HelpForm_ToolStripMenuItem_Click);
 			// 
@@ -410,6 +413,13 @@ namespace PersonalBookLibrary {
 			// openFileDialog1
 			// 
 			this->openFileDialog1->FileName = L"openFileDialog1";
+			// 
+			// quit_ToolStripMenuItem
+			// 
+			this->quit_ToolStripMenuItem->Name = L"quit_ToolStripMenuItem";
+			this->quit_ToolStripMenuItem->Size = System::Drawing::Size(67, 24);
+			this->quit_ToolStripMenuItem->Text = L"Выход";
+			this->quit_ToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::quit_ToolStripMenuItem_Click);
 			// 
 			// MainForm
 			// 
@@ -456,13 +466,24 @@ namespace PersonalBookLibrary {
 	private: System::Void HelpForm_ToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 		HelpForm^ helpForm = gcnew HelpForm;
 		helpForm->Show();
-		/*GreetingForm^ greetingForm = gcnew GreetingForm();
-		greetingForm->Show();*/
 	}
+
+	private: GreetingForm^ greetingForm = gcnew GreetingForm;
+	private: System::Windows::Forms::Timer^ timer = gcnew System::Windows::Forms::Timer();
 	private: System::Void MainForm_Load(System::Object^ sender, System::EventArgs^ e) {
+		timer->Interval = 5000;
+		timer->Tick += gcnew System::EventHandler(this, &PersonalBookLibrary::MainForm::timer_Tick);
+		greetingForm->Show();
+		timer->Start();
+
 		bookExistance_groupBox->Controls->Add(existance_radioButton1);
 		bookExistance_groupBox->Controls->Add(existance_radioButton2);
 	}
+	private: void timer_Tick(System::Object^ sender, System::EventArgs^ e)
+	{
+		greetingForm->Close();
+	}
+
 		   // Обработчик для кнопки добавления
 		   // В данном обработчике реализована логика добавления объекта в БД
 	private: System::Void addToDb_button_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -500,12 +521,8 @@ namespace PersonalBookLibrary {
 			}
 			else
 			{
-				// создание объекта класса Book
-				Book^ book = gcnew Book(bookName, authorName, publisherName,
-					librarySection, bookOrigin, bookRating, bookExistance);
-
-				// добавление объекта класса Book в объект класса BookLibrary
-				ViewModel::bookLibrary->addBook(book);
+				FunctionalViewModel::addEntity(bookName, authorName, publisherName, librarySection,
+					bookOrigin, bookRating, bookExistance);
 			}
 		}
 		catch(Exception^ ex)
@@ -535,7 +552,9 @@ namespace PersonalBookLibrary {
 		}
 
 		String^ filename = saveFileDialog1->FileName;
-		File::WriteAllText(filename, JsonConvert::SerializeObject(ViewModel::bookLibrary->toList(), Formatting::Indented));
+		
+		// сохранение сериализованных в JSON данных в файл
+		FunctionalViewModel::saveToJsonFile(filename);
 		MessageBox::Show("Файл сохранен");
 	}
 
@@ -549,9 +568,8 @@ namespace PersonalBookLibrary {
 		
 		try
 		{
-			List<Book^>^ books = ViewModel::bookLibrary->toList();
-			ViewModel::bookLibrary->deleteAll();
-			books = JsonConvert::DeserializeObject<List<Book^>^>(File::ReadAllText(filename));
+			// десериализация
+			List<Book^>^ books = FunctionalViewModel::deserializeFromJson(filename);
 
 			// валидация
 			for (int i = 0; i < books->Count; i++)
@@ -575,10 +593,8 @@ namespace PersonalBookLibrary {
 				return;
 			}
 
-			for (int i = 0; i < books->Count; i++)
-			{
-				ViewModel::bookLibrary->addBook(books[i]);
-			}
+			// получение данных
+			FunctionalViewModel::addDeserializedData(books);
 
 			MessageBox::Show("Файл открыт");
 		}
@@ -589,5 +605,16 @@ namespace PersonalBookLibrary {
 	}
 	private: System::Void файлToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
+
+private: System::Void quit_ToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	String^ message = "Вы действительно хотите выйти из программы?";
+	String^ caption = "Выход";
+	auto result = MessageBox::Show(message, caption, MessageBoxButtons::YesNo, MessageBoxIcon::Question);
+
+	if (result == System::Windows::Forms::DialogResult::Yes)
+	{
+		this->Close();
+	}
+}
 };
 }

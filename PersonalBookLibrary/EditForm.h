@@ -1,5 +1,6 @@
 #pragma once
 #include "ViewModel.h"
+#include "FunctionalViewModel.h"
 
 namespace PersonalBookLibrary {
 
@@ -427,13 +428,11 @@ private: System::Void saveInDb_button_Click(System::Object^ sender, System::Even
 		else
 		{
 			// изменение значений свойств выбранного объекта
-			selectedBook->name = bookName;
-			selectedBook->author = authorName;
-			selectedBook->publisher = publisherName;
-			selectedBook->libSection = librarySection;
-			selectedBook->origin = bookOrigin;
-			selectedBook->rating = bookRating;
-			selectedBook->exists = bookExistance;
+			FunctionalViewModel::updateEntity(selectedBook, bookName, 
+				authorName, publisherName, 
+				librarySection, bookOrigin, 
+				bookRating, bookExistance);
+
 			this->Close();
 		}
 	}

@@ -126,6 +126,7 @@
     <ClCompile Include="Book.cpp" />
     <ClCompile Include="BookLibrary.cpp" />
     <ClCompile Include="EditForm.cpp" />
+    <ClCompile Include="FunctionalViewModel.cpp" />
     <ClCompile Include="HelpForm.cpp" />
     <ClCompile Include="MainForm.cpp" />
     <ClCompile Include="Node.cpp" />
@@ -139,6 +140,7 @@
     <ClInclude Include="EditForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="FunctionalViewModel.h" />
     <ClInclude Include="GreetingForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>

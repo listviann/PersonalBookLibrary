@@ -114,6 +114,7 @@ namespace PersonalBookLibrary {
 		}
 #pragma endregion
 	private: System::Void GreetingForm_Load(System::Object^ sender, System::EventArgs^ e) {
+		Form::CenterToScreen();
 	}
 	private: System::Void label2_Click(System::Object^ sender, System::EventArgs^ e) {
 	}

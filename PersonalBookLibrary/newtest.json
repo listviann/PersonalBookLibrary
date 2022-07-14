@@ -20,11 +20,11 @@
   {
     "name": "1984",
     "author": "Джордж Оруэлл",
-    "publisher": "Фиалка",
+    "publisher": "Роза",
     "libSection": "Антиутопия",
     "origin": "Великобритания",
     "rating": 5,
-    "exists": true
+    "exists": false
   },
   {
     "name": "Престиж",

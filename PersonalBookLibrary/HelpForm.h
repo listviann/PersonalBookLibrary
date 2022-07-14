@@ -91,10 +91,17 @@ namespace PersonalBookLibrary {
 	// Обработчик формы при её загрузке
 	private: System::Void HelpForm_Load(System::Object^ sender, System::EventArgs^ e) 
 	{
-		// получение справочной информации из текстового файла
-		String^ infoFromFile = System::IO::File::ReadAllText(".\\information.txt");
-		// присваивание информации из файла текстовому значению компонента richTextBox
-		helpInfo_richTextBox->Text = infoFromFile;
+		try
+		{
+			// получение справочной информации из текстового файла
+			String^ infoFromFile = System::IO::File::ReadAllText(".\\information.txt");
+			// присваивание информации из файла текстовому значению компонента richTextBox
+			helpInfo_richTextBox->Text = infoFromFile;
+		}
+		catch (Exception^ ex)
+		{
+			MessageBox::Show("Невозможно загрузить файл, содержащий справочную информацию");
+		}
 	}
 	};
 }

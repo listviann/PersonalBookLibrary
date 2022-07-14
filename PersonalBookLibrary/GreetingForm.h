@@ -41,6 +41,7 @@ namespace PersonalBookLibrary {
 
 
 	private: System::Windows::Forms::PictureBox^ appLogo_pictureBox;
+	private: System::Windows::Forms::Label^ error_label;
 
 
 
@@ -59,9 +60,9 @@ namespace PersonalBookLibrary {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(GreetingForm::typeid));
 			this->greeting_label = (gcnew System::Windows::Forms::Label());
 			this->appLogo_pictureBox = (gcnew System::Windows::Forms::PictureBox());
+			this->error_label = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->appLogo_pictureBox))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -84,12 +85,20 @@ namespace PersonalBookLibrary {
 			this->appLogo_pictureBox->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
 				| System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
-			this->appLogo_pictureBox->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"appLogo_pictureBox.BackgroundImage")));
 			this->appLogo_pictureBox->Location = System::Drawing::Point(88, 73);
 			this->appLogo_pictureBox->Name = L"appLogo_pictureBox";
 			this->appLogo_pictureBox->Size = System::Drawing::Size(299, 264);
 			this->appLogo_pictureBox->TabIndex = 3;
 			this->appLogo_pictureBox->TabStop = false;
+			this->appLogo_pictureBox->Click += gcnew System::EventHandler(this, &GreetingForm::appLogo_pictureBox_Click);
+			// 
+			// error_label
+			// 
+			this->error_label->AutoSize = true;
+			this->error_label->Location = System::Drawing::Point(85, 363);
+			this->error_label->Name = L"error_label";
+			this->error_label->Size = System::Drawing::Size(0, 16);
+			this->error_label->TabIndex = 4;
 			// 
 			// GreetingForm
 			// 
@@ -98,6 +107,7 @@ namespace PersonalBookLibrary {
 			this->AutoSize = true;
 			this->BackColor = System::Drawing::Color::White;
 			this->ClientSize = System::Drawing::Size(482, 519);
+			this->Controls->Add(this->error_label);
 			this->Controls->Add(this->appLogo_pictureBox);
 			this->Controls->Add(this->greeting_label);
 			this->MaximizeBox = false;
@@ -115,11 +125,22 @@ namespace PersonalBookLibrary {
 #pragma endregion
 	private: System::Void GreetingForm_Load(System::Object^ sender, System::EventArgs^ e) {
 		Form::CenterToScreen();
+		try
+		{
+			Bitmap^ logoImage = gcnew Bitmap(".\\logo.png");
+			appLogo_pictureBox->BackgroundImage = logoImage;
+		}
+		catch (Exception^ ex)
+		{
+			error_label->Text = "Ќе удалось отобразить заставку приложени€";
+		}
 	}
 	private: System::Void label2_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void richTextBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
 	
-	};
+	private: System::Void appLogo_pictureBox_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+};
 }

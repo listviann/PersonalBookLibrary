@@ -101,6 +101,7 @@ namespace PersonalBookLibrary {
 		catch (Exception^ ex)
 		{
 			MessageBox::Show("Невозможно загрузить файл, содержащий справочную информацию");
+			helpInfo_richTextBox->Text = "Невозможно загрузить файл, содержащий справочную информацию";
 		}
 	}
 	};

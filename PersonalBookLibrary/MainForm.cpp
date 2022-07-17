@@ -3,6 +3,7 @@
 
 using namespace PersonalBookLibrary;
 
+// входная точка программы
 [STAThread]
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 {

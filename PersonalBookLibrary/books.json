@@ -1,0 +1,56 @@
+[
+  {
+    "name": "Как перестать беспокоиться и начать жить",
+    "author": "Дейл Карнеги",
+    "publisher": "Фиалка",
+    "libSection": "Образование",
+    "origin": "США",
+    "rating": 5,
+    "exists": true
+  },
+  {
+    "name": "О дивный новый мир",
+    "author": "Олдос Хаксли",
+    "publisher": "Ромашка",
+    "libSection": "Антиутопия",
+    "origin": "Великобритания",
+    "rating": 4,
+    "exists": false
+  },
+  {
+    "name": "'1984'",
+    "author": "Джордж Оруэлл",
+    "publisher": "Роза",
+    "libSection": "Антиутопия",
+    "origin": "Великобритания",
+    "rating": 5,
+    "exists": false
+  },
+  {
+    "name": "Престиж",
+    "author": "Кристофер Прист",
+    "publisher": "Ромашка",
+    "libSection": "Фантастика",
+    "origin": "Великобритания",
+    "rating": 4,
+    "exists": false
+  },
+  {
+    "name": "Завтрак у Тиффании",
+    "author": "Трумэн Капоте",
+    "publisher": "Издательство Американская Литература",
+    "libSection": "Роман",
+    "origin": "США",
+    "rating": 3,
+    "exists": false
+  },
+  {
+    "name": "Война и Мир",
+    "author": "Лев Толстой",
+    "publisher": "Издательство \"Классическая литература\"",
+    "libSection": "Роман",
+    "origin": "Российская Империя",
+    "rating": 4,
+    "exists": true
+  }
+]

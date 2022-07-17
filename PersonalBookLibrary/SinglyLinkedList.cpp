@@ -9,13 +9,16 @@ inline void SinglyLinkedList<T>::add(T data)
 
 	if (head == nullptr)
 	{
+		// установка головного элемента
 		head = node;
 	}
 	else
 	{
+		// получение ссылки на новый узел
 		tail->next = node;
 	}
 
+	// переустановка хвостового элемента
 	tail = node;
 	count++;
 }
@@ -23,15 +26,20 @@ inline void SinglyLinkedList<T>::add(T data)
 generic<class T>
 inline bool SinglyLinkedList<T>::remove(T data)
 {
+	// для обхода списка
 	Node<T>^ current = head;
+	// для отслеживания предыдущего узла
 	Node<T>^ previous = nullptr;
 
 	while (current != nullptr)
 	{
 		if (current->data->Equals(data))
 		{
+			// если элемент в середине или в конце
 			if (previous != nullptr)
 			{
+				/*переустановка предыдущего узла по отношению к удаляемому 
+				на следующий по отношению к удаляемому*/
 				previous->next = current->next;
 
 				if (current->next == nullptr)
@@ -39,8 +47,10 @@ inline bool SinglyLinkedList<T>::remove(T data)
 					tail = previous;
 				}
 			}
+			// если элемент в начале
 			else
 			{
+				// происходит удаление с начала списка
 				head = head->next;
 				if (head == nullptr)
 				{
@@ -122,6 +132,7 @@ void SinglyLinkedList<T>::printListDebug()
 generic<typename T>
 System::Collections::Generic::List<T>^ SinglyLinkedList<T>::toBuiltInList()
 {
+	// преобразование в System::Collections::Generic::List<T>
 	System::Collections::Generic::List<T>^ _list = gcnew System::Collections::Generic::List<T>();
 	Node<T>^ current = head;
 

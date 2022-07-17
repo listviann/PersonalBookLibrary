@@ -27,6 +27,7 @@ namespace PersonalBookLibrary {
 			//TODO: Add the constructor code here
 			//
 
+			// добавление ключей поиска в comboBox
 			searchKey_comboBox->Items->Add("Название");
 			searchKey_comboBox->Items->Add("Автор");
 			searchKey_comboBox->Items->Add("Издательство");

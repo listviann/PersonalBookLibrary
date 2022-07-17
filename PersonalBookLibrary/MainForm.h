@@ -459,6 +459,7 @@ namespace PersonalBookLibrary {
 
 		}
 #pragma endregion
+		// переходы на формы из компонентов меню
 	private: System::Void ResultForm_ToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 		ResultForm^ resultForm = gcnew ResultForm;
 		resultForm->Show();
@@ -468,20 +469,33 @@ namespace PersonalBookLibrary {
 		helpForm->Show();
 	}
 
+	// объект приветственного окна
 	private: GreetingForm^ greetingForm = gcnew GreetingForm;
+	// таймер
 	private: System::Windows::Forms::Timer^ timer = gcnew System::Windows::Forms::Timer();
+
 	private: System::Void MainForm_Load(System::Object^ sender, System::EventArgs^ e) {
-		timer->Interval = 5000;
+		// при запуске программы главное окно сворачивается на 3 секунды
+		this->WindowState = System::Windows::Forms::FormWindowState::Minimized;
+		timer->Interval = 3000;
+		// подписка на событие
 		timer->Tick += gcnew System::EventHandler(this, &PersonalBookLibrary::MainForm::timer_Tick);
+		// объект приветственного окна отображается на 3 секунды
 		greetingForm->Show();
 		timer->Start();
 
+		// добавление компонентов radioButton в один общий контейнер
 		bookExistance_groupBox->Controls->Add(existance_radioButton1);
 		bookExistance_groupBox->Controls->Add(existance_radioButton2);
 	}
+	
+	// срабатывает, когда истекает таймер
 	private: void timer_Tick(System::Object^ sender, System::EventArgs^ e)
 	{
+		// приветственное окно закрывается
 		greetingForm->Close();
+		// снова открывается главное окно
+		this->WindowState = System::Windows::Forms::FormWindowState::Normal;
 	}
 
 		   // Обработчик для кнопки добавления
@@ -582,7 +596,7 @@ namespace PersonalBookLibrary {
 					|| books[i]->rating < 1
 					|| books[i]->rating > 5)
 				{
-					MessageBox::Show("Некоторые данные могу отсутствовать или указана некорректная оценка");
+					MessageBox::Show("Некоторые данные могут отсутствовать или указана некорректная оценка");
 					return;
 				}
 			}
@@ -613,7 +627,7 @@ private: System::Void quit_ToolStripMenuItem_Click(System::Object^ sender, Syste
 
 	if (result == System::Windows::Forms::DialogResult::Yes)
 	{
-		this->Close();
+		this->Close(); // закрытие главного окна и программы
 	}
 }
 };
